@@ -1,157 +1,186 @@
 package Dominio;
 
-
-import Dominio.FAE;
-import Dominio.ListCandidaturas;
-import Dominio.ListFAE;
-import Dominio.ListOrganizadores;
-import Dominio.Local;
 import java.util.ArrayList;
 
 public class Evento {
 
-	private Local local;
-	private String titulo;
-	private String descriçao;
-	private String dataInicio;
-	private String dataFim;
-	private String dataLimiteCandidaturas;
-	private ListCandidaturas listCandidaturas;
-	private ListAtribuicoes listAtribuicoes;
-	private ListFAE listFAE;
-	private ListOrganizadores listOrganizadores;
+    private String local;
+    private String titulo;
+    private String descricao;
+    private String dataInicio;
+    private String dataFim;
+    private String dataLimiteCandidaturas;
+    private static String DADOS_POR_DEFENIR = "nao definido";
+    private ListCandidaturas listCandidaturas;
+    private ListAtribuicoes listAtribuicoes;
+    private ListFAE listFAE;
+    private ListOrganizadores listOrganizadores;
 
-	public void novoOrganizador() {
-		// TODO - implement Evento.novoOrganizador
-		throw new UnsupportedOperationException();
-	}
+    public Evento() {
+        this.titulo = DADOS_POR_DEFENIR;
+        this.descricao = DADOS_POR_DEFENIR;
+        this.local = DADOS_POR_DEFENIR;
+        this.dataFim = DADOS_POR_DEFENIR;
+        this.dataInicio = DADOS_POR_DEFENIR;
+    }
 
-	public void novoFAE() {
-		// TODO - implement Evento.novoFAE
-		throw new UnsupportedOperationException();
-	}
+    public void addOrganizador() {
+        // TODO - implement Evento.novoOrganizador
+        throw new UnsupportedOperationException();
+    }
 
-	/**
-	 * 
-	 * @param FAE
-	 */
-	public Candidatura[] mostrarListaCandidaturasPorAvaliarDoFAEValidas(FAE FAE) {
-		// TODO - implement Evento.mostrarListaCandidaturasPorAvaliarDoFAEValidas
-		throw new UnsupportedOperationException();
-	}
+    public void addFAE() {
+        // TODO - implement Evento.novoFAE
+        throw new UnsupportedOperationException();
+    }
 
-	public boolean existemCandidaturasPorAtribuir() {
-		// TODO - implement Evento.existemCandidaturasPorAtribuir
-		throw new UnsupportedOperationException();
-	}
+    /**
+     *
+     * @param FAE
+     */
+    public Candidatura[] mostrarListaCandidaturasPorAvaliarDoFAE(FAE FAE) {
+        // TODO - implement Evento.mostrarListaCandidaturasPorAvaliarDoFAEValidas
+        throw new UnsupportedOperationException();
+    }
 
-	public ArrayList<Atribuicao> gerarAtribuicoes() {
-		// TODO - implement Evento.gerarAtribuicoes
-		throw new UnsupportedOperationException();
-	}
+    public boolean existemCandidaturasPorAtribuir() {
+        // TODO - implement Evento.existemCandidaturasPorAtribuir
+        throw new UnsupportedOperationException();
+    }
 
-	/**
-	 * 
-	 * @param nomeOrganizador
-	 */
-	public boolean verificarSeOrganizadorPertence(String nomeOrganizador) {
-		// TODO - implement Evento.verificarSeOrganizadorPertence
-		throw new UnsupportedOperationException();
-	}
+    public ArrayList<Atribuicao> getAtribuicoes() {
+        return null;
+    }
 
-	public void adicionarAoArrayDeEventosAMostrar() {
-		// TODO - implement Evento.adicionarAoArrayDeEventosAMostrar
-		throw new UnsupportedOperationException();
-	}
+    /**
+     *
+     * @param nomeOrganizador
+     */
+    public boolean verificarOrganizador(Organizador organizador) {
+        // TODO - implement Evento.verificarSeOrganizadorPertence
+        throw new UnsupportedOperationException();
+    }
 
-	/**
-	 * 
-	 * @param descricão
-	 */
-	public void setDescrição(String descricão) {
-		// TODO - implement Evento.setDescrição
-		throw new UnsupportedOperationException();
-	}
+    /**
+     *
+     * @param descricao
+     */
+    public void setDescricao(String descricao) {
+        this.descricao = descricao;
+    }
 
-	/**
-	 * 
-	 * @param dataInicio
-	 */
-	public String setDataInicio(String dataInicio) {
-		// TODO - implement Evento.setDataInicio
-		throw new UnsupportedOperationException();
-	}
+    /**
+     *
+     * @param dataInicio
+     */
+    public void setDataInicio(String dataInicio) {
+        this.dataInicio = dataInicio;
+    }
 
-	/**
-	 * 
-	 * @param dataFim
-	 */
-	public void setDataFim(String dataFim) {
-		this.dataFim = dataFim;
-	}
+    /**
+     *
+     * @param dataFim
+     */
+    public void setDataFim(String dataFim) {
+        this.dataFim = dataFim;
+    }
 
-	/**
-	 * 
-	 * @param nomeLocal
-	 */
-	public void setNomeLocal(String nomeLocal) {
-		// TODO - implement Evento.setNomeLocal
-		throw new UnsupportedOperationException();
-	}
+    /**
+     *
+     * @param nomeLocal
+     */
+    public void setLocal(String local) {
+        // TODO - implement Evento.setNomeLocal
+        throw new UnsupportedOperationException();
+    }
 
-	/**
-	 * 
-	 * @param dataLimiteSubmissaoCandidaturas
-	 */
-	public String setDataLimiteSubmissaoCandidaturas(String dataLimiteSubmissaoCandidaturas) {
-		// TODO - implement Evento.setDataLimiteSubmissaoCandidaturas
-		throw new UnsupportedOperationException();
-	}
+    /**
+     *
+     * @param dataLimiteCandidaturas
+     */
+    public void setDataLimiteSubmissaoCandidaturas(String dataLimiteCandidaturas) {
+        this.setDataLimiteCandidaturas(dataLimiteCandidaturas);
+        
+    }
 
-	public boolean verifcarFAEEData() {
-		// TODO - implement Evento.verifcarFAEEData
-		throw new UnsupportedOperationException();
-	}
+    public boolean verifcarFAE(FAE FAE) {
+        // TODO - implement Evento.verifcarFAEEData
+        throw new UnsupportedOperationException();
+    }
 
-	public boolean validarDataFimAtribuicoes() {
-		// TODO - implement Evento.validarDataFimAtribuicoes
-		throw new UnsupportedOperationException();
-	}
+    public ListCandidaturas getListCandidaturas() {
+        return this.listCandidaturas;
+    }
 
-	public boolean validarDataAvaliacoes() {
-		// TODO - implement Evento.validarDataAvaliacoes
-		throw new UnsupportedOperationException();
-	}
+    public boolean validaFAENaoOrganizador() {
+        // TODO - implement Evento.validaFAENaoOrganizador
+        throw new UnsupportedOperationException();
+    }
 
-	public boolean validarCandidaturasPorAvaliar() {
-		// TODO - implement Evento.validarCandidaturasPorAvaliar
-		throw new UnsupportedOperationException();
-	}
+    public ListFAE getListFAE() {
+        return this.listFAE;
+    }
 
-	public ListCandidaturas getListCandidaturas() {
-		return this.listCandidaturas;
-	}
+    public ListOrganizadores getListOrganizadores() {
+        return this.listOrganizadores;
+    }
 
-	public boolean validaFAENaoOrganizador() {
-		// TODO - implement Evento.validaFAENaoOrganizador
-		throw new UnsupportedOperationException();
-	}
+    public boolean validaDataFimSubmissoes() {
+        // TODO - implement Evento.validaDataFimSubmissoes
+        throw new UnsupportedOperationException();
+    }
 
-	public ListFAE getListFAE() {
-		return this.listFAE;
-	}
+    public ListAtribuicoes getListAtribuicoes() {
+        return this.listAtribuicoes;
+    }
 
-	public ListOrganizadores getListOrganizadores() {
-		return this.listOrganizadores;
-	}
+    /**
+     * @return the titulo
+     */
+    public String getTitulo() {
+        return titulo;
+    }
 
-	public boolean validaDataFimSubmissoes() {
-		// TODO - implement Evento.validaDataFimSubmissoes
-		throw new UnsupportedOperationException();
-	}
+    /**
+     * @param titulo the titulo to set
+     */
+    public void setTitulo(String titulo) {
+        this.titulo = titulo;
+    }
 
-	public ListAtribuicoes getListAtribuicoes() {
-		return this.listAtribuicoes;
-	}
+    /**
+     * @return the descricao
+     */
+    public String getDescricao() {
+        return descricao;
+    }
+
+    /**
+     * @return the dataInicio
+     */
+    public String getDataInicio() {
+        return dataInicio;
+    }
+
+    /**
+     * @return the dataFim
+     */
+    public String getDataFim() {
+        return dataFim;
+    }
+
+    /**
+     * @return the dataLimiteCandidaturas
+     */
+    public String getDataLimiteCandidaturas() {
+        return dataLimiteCandidaturas;
+    }
+
+    /**
+     * @param dataLimiteCandidaturas the dataLimiteCandidaturas to set
+     */
+    public void setDataLimiteCandidaturas(String dataLimiteCandidaturas) {
+        this.dataLimiteCandidaturas = dataLimiteCandidaturas;
+    }
 
 }

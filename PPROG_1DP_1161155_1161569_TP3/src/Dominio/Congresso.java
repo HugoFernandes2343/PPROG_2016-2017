@@ -1,9 +1,7 @@
 package Dominio;
 
 
-import Dominio.Evento;
-import Dominio.Organizador;
-import Dominio.Workshop;
+
 
 public class Congresso extends Evento {
 

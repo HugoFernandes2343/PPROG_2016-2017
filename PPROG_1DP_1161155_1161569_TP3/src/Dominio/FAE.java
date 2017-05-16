@@ -7,19 +7,14 @@ import Dominio.Utilizador;
 public class FAE {
 
     private Utilizador utilizador;
+    private int competencia;
 
     /**
      *
      * @param Utilizador
      */
-    public void defenirFAE(Utilizador Utilizador) {
-        // TODO - implement FAE.defenirFAE
-        throw new UnsupportedOperationException();
+    public void defenirFAE(Utilizador utilizador, int competencia) {
+       this.utilizador=utilizador;
+       this.competencia=competencia;
     }
-
-    public void valida() {
-        // TODO - implement FAE.valida
-        throw new UnsupportedOperationException();
-    }
-
 }

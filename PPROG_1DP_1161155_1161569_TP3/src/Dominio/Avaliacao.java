@@ -5,22 +5,47 @@ package Dominio;
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 /**
  *
  * @author Hugo
  */
 public class Avaliacao {
-    	private String veredicto;
-	private String justificacao;
 
-	/**
-	 * 
-	 * @param Veredicto
-	 * @param justificacao
-	 */
-	public void defenirAvaliaçao(String Veredicto, String justificacao) {
-		// TODO - implement Avaliação.defenirAvaliaçao
-		throw new UnsupportedOperationException();
-	}
+    private boolean veredicto;
+    private String justificacao;
+    private static boolean JUSTIFICACAO_POR_OMISSAO = false;
+    private static String VEREDICTO_POR_OMISSAO = "Nao justificada";
+
+    public Avaliacao() {
+        this.veredicto = JUSTIFICACAO_POR_OMISSAO;
+        this.justificacao=VEREDICTO_POR_OMISSAO;
+    }
+
+    /**
+     * @return the veredicto
+     */
+    public boolean getVeredicto() {
+        return veredicto;
+    }
+
+    /**
+     * @param veredicto the veredicto to set
+     */
+    public void setVeredicto(boolean veredicto) {
+        this.veredicto = veredicto;
+    }
+
+    /**
+     * @return the justificacao
+     */
+    public String getJustificacao() {
+        return justificacao;
+    }
+
+    /**
+     * @param justificacao the justificacao to set
+     */
+    public void setJustificacao(String justificacao) {
+        this.justificacao = justificacao;
+    }
 }
