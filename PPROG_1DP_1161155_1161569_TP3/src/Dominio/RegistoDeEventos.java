@@ -5,7 +5,7 @@ import java.util.*;
 public class RegistoDeEventos {
 
 	private Collection<Evento> evento;
-
+        
 	/**
 	 * 
 	 * @param tipoEvento

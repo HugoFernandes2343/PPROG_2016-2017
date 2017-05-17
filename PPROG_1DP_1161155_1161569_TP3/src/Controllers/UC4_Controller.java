@@ -1,4 +1,7 @@
+package Controllers;
 
+
+import Dominio.Utilizador;
 import Dominio.Atribuicao;
 import Dominio.Candidatura;
 import Dominio.Evento;
@@ -6,10 +9,15 @@ import Dominio.FAE;
 import java.util.ArrayList;
 
 public class UC4_Controller {
-
+        private FAE FAE;
+    
+        
+        public UC4_Controller(Utilizador utilizador){
+            this.FAE= new FAE(utilizador);
+        }
+        
 	public void mostrarListaEventos() {
-		// TODO - implement UC4_Controller.mostrarListaEventos
-		throw new UnsupportedOperationException();
+                
 	}
 
 	/**
