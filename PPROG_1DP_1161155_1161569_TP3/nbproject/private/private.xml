@@ -3,11 +3,30 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+<<<<<<< HEAD
             <file>file:/C:/Users/hugod/Documents/pprog_1dp_1161155_1161569_tp3/PPROG_1DP_1161155_1161569_TP3/src/Dominio/RegistoDeEventos.java</file>
             <file>file:/C:/Users/hugod/Documents/pprog_1dp_1161155_1161569_tp3/PPROG_1DP_1161155_1161569_TP3/src/UIs/UC4_UI.java</file>
             <file>file:/C:/Users/hugod/Documents/pprog_1dp_1161155_1161569_tp3/PPROG_1DP_1161155_1161569_TP3/src/Dominio/CentroDeEventos.java</file>
             <file>file:/C:/Users/hugod/Documents/pprog_1dp_1161155_1161569_tp3/PPROG_1DP_1161155_1161569_TP3/src/GUI/LOGIN.java</file>
             <file>file:/C:/Users/hugod/Documents/pprog_1dp_1161155_1161569_tp3/PPROG_1DP_1161155_1161569_TP3/src/Controllers/UC4_Controller.java</file>
+=======
+            <file>file:/C:/Users/Hugo/Desktop/trabalhos/PPROG%20GIT/PPROG_1DP_1161155_1161569_TP3/src/Dominio/Evento.java</file>
+            <file>file:/C:/Users/Hugo/Desktop/trabalhos/PPROG%20GIT/PPROG_1DP_1161155_1161569_TP3/src/Dominio/Exposicao.java</file>
+            <file>file:/C:/Users/Hugo/Desktop/trabalhos/PPROG%20GIT/PPROG_1DP_1161155_1161569_TP3/src/Dominio/Organizador.java</file>
+            <file>file:/C:/Users/Hugo/Desktop/trabalhos/PPROG%20GIT/PPROG_1DP_1161155_1161569_TP3/src/Dominio/ListOrganizadores.java</file>
+            <file>file:/C:/Users/Hugo/Desktop/trabalhos/PPROG%20GIT/PPROG_1DP_1161155_1161569_TP3/src/Controllers/UC3_Controller.java</file>
+            <file>file:/C:/Users/Hugo/Desktop/trabalhos/PPROG%20GIT/PPROG_1DP_1161155_1161569_TP3/src/Dominio/CentroDeEventos.java</file>
+            <file>file:/C:/Users/Hugo/Desktop/trabalhos/PPROG%20GIT/PPROG_1DP_1161155_1161569_TP3/src/Dominio/FAE.java</file>
+            <file>file:/C:/Users/Hugo/Desktop/trabalhos/PPROG%20GIT/PPROG_1DP_1161155_1161569_TP3/src/Dominio/RegistoUtilizadores.java</file>
+            <file>file:/C:/Users/Hugo/Desktop/trabalhos/PPROG%20GIT/PPROG_1DP_1161155_1161569_TP3/src/Dominio/Utilizador.java</file>
+            <file>file:/C:/Users/Hugo/Desktop/trabalhos/PPROG%20GIT/PPROG_1DP_1161155_1161569_TP3/src/Dominio/Candidatura.java</file>
+            <file>file:/C:/Users/Hugo/Desktop/trabalhos/PPROG%20GIT/PPROG_1DP_1161155_1161569_TP3/src/Dominio/RegistoDeEventos.java</file>
+            <file>file:/C:/Users/Hugo/Desktop/trabalhos/PPROG%20GIT/PPROG_1DP_1161155_1161569_TP3/src/Dominio/Congresso.java</file>
+            <file>file:/C:/Users/Hugo/Desktop/trabalhos/PPROG%20GIT/PPROG_1DP_1161155_1161569_TP3/src/Dominio/Workshop.java</file>
+            <file>file:/C:/Users/Hugo/Desktop/trabalhos/PPROG%20GIT/PPROG_1DP_1161155_1161569_TP3/src/Dominio/GestorDeEventos.java</file>
+            <file>file:/C:/Users/Hugo/Desktop/trabalhos/PPROG%20GIT/PPROG_1DP_1161155_1161569_TP3/src/Dominio/Avaliacao.java</file>
+            <file>file:/C:/Users/Hugo/Desktop/trabalhos/PPROG%20GIT/PPROG_1DP_1161155_1161569_TP3/src/Dominio/Atribuicao.java</file>
+>>>>>>> origin/master
         </group>
     </open-files>
 </project-private>

@@ -1,40 +1,35 @@
 package Dominio;
 
-import Dominio.Utilizador;
-import java.util.*;
+import java.util.ArrayList;
 
 public class RegistoUtilizadores {
 
-	private Collection<Utilizador> utilizador;
+    private ArrayList<Utilizador> listUtilizadores;
 
-	/**
-	 * 
-	 * @param nomeUtulizador
-	 */
-	public Utilizador procurarUtilizador(String nomeUtulizador) {
-		// TODO - implement RegistoUtilizadores.procurarUtilizador
-		throw new UnsupportedOperationException();
-	}
+    /**
+     *
+     * @param nomeUtulizador
+     */
+    public Utilizador procurarUtilizador(Utilizador utilizador) {
+        // TODO - implement RegistoUtilizadores.procurarUtilizador
+        throw new UnsupportedOperationException();
+    }
 
-	
+    /**
+     *
+     * @param utilizadorNaoConfirmado
+     */
+    public boolean validarUtilizador(Utilizador utilizador) {
+        // TODO - implement RegistoUtilizadores.validarUtilizador
+        throw new UnsupportedOperationException();
+    }
 
-	/**
-	 * 
-	 * @param utilizadorNaoConfirmado
-	 */
-	public boolean validarUtilizador(int utilizadorNaoConfirmado) {
-		// TODO - implement RegistoUtilizadores.validarUtilizador
-		throw new UnsupportedOperationException();
-	}
+    public void addUtilizador(Utilizador utilizador) {
+        this.listUtilizadores.add(utilizador);
+    }
 
-	public void registarUtilizador() {
-		// TODO - implement RegistoUtilizadores.registarUtilizador
-		throw new UnsupportedOperationException();
-	}
-
-	public Utilizador[] getUtilizadores() {
-		// TODO - implement RegistoUtilizadores.getUtilizadores
-		throw new UnsupportedOperationException();
-	}
+    public ArrayList<Utilizador> getListUtilizadores() {
+        return listUtilizadores;
+    }
 
 }
