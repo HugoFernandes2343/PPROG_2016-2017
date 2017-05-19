@@ -11,10 +11,10 @@ public class Evento {
     private String dataFim;
     private String dataLimiteCandidaturas;
     private static String DADOS_POR_DEFENIR = "nao definido";
-    private ListCandidaturas listCandidaturas;
-    private ListAtribuicoes listAtribuicoes;
-    private ListFAE listFAE;
-    private ListOrganizadores listOrganizadores;
+    private static ListCandidaturas LISTA_CANDIDATURAS;
+    private static ListAtribuicoes LISTA_ATRIBUICOES;
+    private static ListFAE LISTA_FAE;
+    private static ListOrganizadores LISTA_ORGANIZADORES;
 
     public Evento() {
         this.titulo = DADOS_POR_DEFENIR;
@@ -38,9 +38,9 @@ public class Evento {
      *
      * @param FAE
      */
-    public Candidatura[] mostrarListaCandidaturasPorAvaliarDoFAE(FAE FAE) {
-        // TODO - implement Evento.mostrarListaCandidaturasPorAvaliarDoFAEValidas
-        throw new UnsupportedOperationException();
+    public ArrayList<Candidatura> getCandidaturasPorAvaliarDoFAE(FAE FAE) {
+        ArrayList<Candidatura> candidaturas = LISTA_ATRIBUICOES.getCandidaturasPorAvaliarDoFAE(FAE);
+        return candidaturas;
     }
 
     public boolean existemCandidaturasPorAtribuir() {
@@ -48,8 +48,8 @@ public class Evento {
         throw new UnsupportedOperationException();
     }
 
-    public ArrayList<Atribuicao> getAtribuicoes() {
-        return null;
+    public ListAtribuicoes getAtribuicoes() {
+        return LISTA_ATRIBUICOES;
     }
 
     /**
@@ -100,7 +100,7 @@ public class Evento {
      */
     public void setDataLimiteSubmissaoCandidaturas(String dataLimiteCandidaturas) {
         this.setDataLimiteCandidaturas(dataLimiteCandidaturas);
-        
+
     }
 
     public boolean verifcarFAE(FAE FAE) {

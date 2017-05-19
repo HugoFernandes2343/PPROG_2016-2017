@@ -2,50 +2,19 @@ package Dominio;
 
 import java.util.ArrayList;
 
-<<<<<<< HEAD
 public class RegistoDeEventos {
 
-	private Collection<Evento> evento;
-        
-	/**
-	 * 
-	 * @param tipoEvento
-	 */
-	public void criarEvento(String tipoEvento) {
-		// TODO - implement RegistoDeEventos.criarEvento
-		throw new UnsupportedOperationException();
-	}
+    private static ArrayList<Evento> LISTA_EVENTOS;
 
-	/**
-	 * 
-	 * @param evento
-	 */
-	public void registarEventos(Evento evento) {
-		// TODO - implement RegistoDeEventos.registarEventos
-		throw new UnsupportedOperationException();
-	}
-
-	/**
-	 * 
-	 * @param evento
-	 */
-	public void validarEvento(Evento evento) {
-		// TODO - implement RegistoDeEventos.validarEvento
-		throw new UnsupportedOperationException();
-	}
-=======
->>>>>>> origin/master
-
-
-public class RegistoDeEventos {
-
-    private ArrayList<Evento> evento;
+    public ArrayList<Evento> getListaEventos() {
+        return LISTA_EVENTOS;
+    }
 
     /**
      *
-     * @param evento
+     * @param tipoEvento
      */
-    public void ValidarEvento(Evento evento) {
+    public void criarEvento(String tipoEvento) {
         // TODO - implement RegistoDeEventos.criarEvento
         throw new UnsupportedOperationException();
     }
@@ -54,8 +23,22 @@ public class RegistoDeEventos {
      *
      * @param evento
      */
+    public void registarEventos(Evento evento) {
+        // TODO - implement RegistoDeEventos.registarEventos
+        throw new UnsupportedOperationException();
+    }
+
+    /**
+     *
+     * @param evento
+     */
+    public void validarEvento(Evento evento) {
+        // TODO - implement RegistoDeEventos.validarEvento
+        throw new UnsupportedOperationException();
+    }
+
     public void addEvento(Evento evento) {
-        this.evento.add(evento);
+        LISTA_EVENTOS.add(evento);
     }
 
     /**
@@ -75,10 +58,17 @@ public class RegistoDeEventos {
     /**
      *
      * @param FAE
+     * @return
      */
-    public Evento[] mostrarListaEventosDoFAE(FAE FAE) {
-        // TODO - implement RegistoDeEventos.mostrarListaEventosDoFAEComCandidaturasProntasParaAvaliar
-        throw new UnsupportedOperationException();
+    public ArrayList<Evento> mostrarListaEventosDoFAE(FAE FAE) {
+        ArrayList<Evento> listaEventosDoFAE = new ArrayList();
+        for (int i = 0; i < LISTA_EVENTOS.size(); i++) {
+         boolean FAEPertenceAoEvento = LISTA_EVENTOS.get(i).getListFAE().validaFAE(FAE);
+         if(FAEPertenceAoEvento = true){
+             listaEventosDoFAE.add(LISTA_EVENTOS.get(i));
+         }
+        }
+        return listaEventosDoFAE;
     }
 
 }

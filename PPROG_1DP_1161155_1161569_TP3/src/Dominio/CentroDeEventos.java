@@ -8,11 +8,13 @@ import java.util.ArrayList;
 
 public class CentroDeEventos {
 
-	private RegistoUtilizadores registoUtilizadores;
-	private RegistoDeEventos registoDeEventos;
-	private ListGestorDeEventros listGestorDeEventos;
+	private static RegistoUtilizadores REGISTO_UTILIZADORES;
+	private static RegistoDeEventos REGISTO_DE_EVENTOS;
+	private static ListGestorDeEventos LIST_GESTOR_DE_EVENTOS;
 
-
+        public CentroDeEventos(){
+            
+        }
 	/**
 	 * 
 	 * @param nomeUtilizador
@@ -62,11 +64,11 @@ public class CentroDeEventos {
 
 
 	public RegistoDeEventos getRegistoEventos() {
-		return this.registoDeEventos;
+		return CentroDeEventos.REGISTO_DE_EVENTOS;
 	}
 
 	public RegistoUtilizadores getRegistoUtilizadores() {
-		return this.registoUtilizadores;
+		return CentroDeEventos.REGISTO_UTILIZADORES;
 	}
 
 	public ListAtribuicoes getListAtribuicoes() {

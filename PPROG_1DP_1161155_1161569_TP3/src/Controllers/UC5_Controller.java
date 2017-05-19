@@ -1,65 +1,73 @@
 package Controllers;
 
+import Dominio.Atribuicao;
 import Dominio.Avaliacao;
 import Dominio.Candidatura;
 import Dominio.Evento;
 import Dominio.FAE;
+import java.util.ArrayList;
 
 
 public class UC5_Controller {
 
 	/**
 	 * 
+	 * @param nomeOrganizador
+	 */
+	public ArrayList<Evento> mostarListaEventosDoOrganizadorQueJaPassouData(String nomeOrganizador) {
+		// TODO - implement UC4_Controller.mostarListaEventosDoOrganizadorQueJaPassouData
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * 
+	 * @param nomeEvento
+	 */
+	public static Candidatura[] mostraListaCandidaturasNaoAtribuidas(String nomeEvento) {
+		// TODO - implement UC4_Controller.mostraListaCandidaturasNaoAtribuidas
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * 
+	 * @param nomeEvento
+	 */
+	public FAE mostraFAEDoEvento(String nomeEvento) {
+		// TODO - implement UC4_Controller.mostraFAEDoEvento
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * 
 	 * @param FAE
-	 */
-	public Evento[] mostrarListaEventosDoFAEComCandidaturasPorAvaliar(FAE FAE) {
-		// TODO - implement UC5_Controller.mostrarListaEventosDoFAEComCandidaturasPorAvaliar
-		throw new UnsupportedOperationException();
-	}
-
-	/**
-	 * 
-	 * @param evento
-	 */
-	public Candidatura[] MostrarListaCandidaturasPorAvaliarDoFAE(Evento evento) {
-		// TODO - implement UC5_Controller.MostrarListaCandidaturasPorAvaliarDoFAE
-		throw new UnsupportedOperationException();
-	}
-
-	/**
-	 * 
-	 * @param nomeCandidatura
-	 */
-	public Candidatura mostrarCandidatura(String nomeCandidatura) {
-		// TODO - implement UC5_Controller.mostrarCandidatura
-		throw new UnsupportedOperationException();
-	}
-
-	/**
-	 * 
-	 * @param veredicto
-	 * @param justificacao
-	 */
-	public void defenirAvaliaçao(String veredicto, String justificacao) {
-		// TODO - implement UC5_Controller.defenirAvaliaçao
-		throw new UnsupportedOperationException();
-	}
-
-	/**
-	 * 
 	 * @param candidatura
 	 */
-	public void removeCandidaturaDaListaCandidaturasPorAvaliarDoFAE(Candidatura candidatura) {
-		// TODO - implement UC5_Controller.removeCandidaturaDaListaCandidaturasPorAvaliarDoFAE
+	public static void defenirAtriuicao(FAE FAE, Candidatura candidatura) {
+		// TODO - implement UC4_Controller.defenirAtriuicao
 		throw new UnsupportedOperationException();
 	}
 
 	/**
 	 * 
-	 * @param avaliacoes
+	 * @param atribuições
 	 */
-	public void guardarAvaliacoes(Avaliacao[] avaliacoes) {
-		// TODO - implement UC5_Controller.guardarAvaliacoes
+	public static void guardarAtribuições(Atribuicao[] atribuições) {
+		// TODO - implement UC4_Controller.guardarAtribuições
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * 
+	 * @param eventosList
+	 */
+	public String[] procurarDatasSubmissao(ArrayList<Evento> eventosList) {
+		// TODO - implement UC4_Controller.procurarDatasSubmissao
+		throw new UnsupportedOperationException();
+	}
+
+
+	public ArrayList<Atribuicao> gerarAtribuicoes() {
+		// TODO - implement UC4_Controller.gerarAtribuicoes
 		throw new UnsupportedOperationException();
 	}
 

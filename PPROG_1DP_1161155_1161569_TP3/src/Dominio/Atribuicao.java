@@ -15,13 +15,12 @@ public class Atribuicao {
     private Candidatura candidatura;
     private Avaliacao avaliacao;
 
- 
     
-    public Atribuicao(FAE FAE, Candidatura candidatura){
-    this.FAE=FAE;
-    this.candidatura=candidatura;
-    
-    
+
+    public Atribuicao(FAE FAE, Candidatura candidatura) {
+        this.FAE = FAE;
+        this.candidatura = candidatura;
+        this.avaliacao = null;
     }
 
     /**
@@ -61,9 +60,19 @@ public class Atribuicao {
         throw new UnsupportedOperationException();
     }
 
-   
     public boolean existeAvaliacao() {
-        // TODO - implement Atribuição.existeAvaliacao
-        throw new UnsupportedOperationException();
+       boolean existe = true;
+       if(avaliacao == null){
+           existe = false;
+       }
+       return existe;
+    }
+
+    public FAE getFAE() {
+       return FAE;
+    }
+
+    public Candidatura getCandidatura() {
+        return candidatura;
     }
 }

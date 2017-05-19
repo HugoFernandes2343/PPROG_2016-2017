@@ -1,30 +1,34 @@
 package Dominio;
 
-
 import java.util.*;
 
 public class ListFAE {
 
-	private Collection<FAE> FAE;
+    private static ArrayList<FAE> LISTA_FAE;
 
-	public void novoFAE() {
-		// TODO - implement ListFAE.novoFAE
-		throw new UnsupportedOperationException();
-	}
+    public void novoFAE() {
+        // TODO - implement ListFAE.novoFAE
+        throw new UnsupportedOperationException();
+    }
 
-	public void validaFAE() {
-		// TODO - implement ListFAE.validaFAE
-		throw new UnsupportedOperationException();
-	}
+    public boolean validaFAE(FAE FAE) {
+        boolean existe = false;
+        for (int i = 0; i < LISTA_FAE.size(); i++) {
+            if(!LISTA_FAE.get(i).equals(FAE)){
+            existe = true;
+            }
+        }
+        return existe;
+    }
 
-	public void registaFAE() {
-		// TODO - implement ListFAE.registaFAE
-		throw new UnsupportedOperationException();
-	}
+    public void registaFAE() {
+        // TODO - implement ListFAE.registaFAE
+        throw new UnsupportedOperationException();
+    }
 
-	public void registarFAE() {
-		// TODO - implement ListFAE.registarFAE
-		throw new UnsupportedOperationException();
-	}
+    public void registarFAE() {
+        // TODO - implement ListFAE.registarFAE
+        throw new UnsupportedOperationException();
+    }
 
 }

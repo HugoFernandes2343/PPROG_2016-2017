@@ -3,7 +3,7 @@ package Dominio;
 import Dominio.Utilizador;
 import java.util.*;
 
-public class ListGestorDeEventros {
+public class ListGestorDeEventos {
 
 	private Collection<GestorDeEventos> gestorDeEventos;
 

@@ -6,11 +6,12 @@ import Dominio.Utilizador;
 public class UC3_Controller {
 
     private Organizador organizador;
-    private Evento evento;
+    
+    private static Evento EVENTO;
 
-    public UC3_Controller(Utilizador utilizador) {
-        this.organizador = new Organizador(utilizador);
-        this.evento=new Evento();
+    public UC3_Controller(Organizador organizador) {
+        this.organizador =  organizador;
+        
     }
 
     public static Evento[] mostrarListaEventosDoOrganizador() {

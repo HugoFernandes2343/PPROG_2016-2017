@@ -1,5 +1,6 @@
-
-import GUI.LOGIN;
+import Contrellers.*;
+import Dominio.*;
+import GUI.*;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -17,6 +18,7 @@ public class TESTE {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
+        CentroDeEventos centro= new CentroDeEventos();
         LOGIN login=new LOGIN();
     }
     
