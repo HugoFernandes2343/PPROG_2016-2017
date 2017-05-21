@@ -11,11 +11,15 @@ public class ListFAE {
         throw new UnsupportedOperationException();
     }
 
+    public ArrayList<FAE> getListaDeFAE() {
+        return LISTA_FAE;
+    }
+
     public boolean validaFAE(FAE FAE) {
         boolean existe = false;
         for (int i = 0; i < LISTA_FAE.size(); i++) {
-            if(!LISTA_FAE.get(i).equals(FAE)){
-            existe = true;
+            if (!LISTA_FAE.get(i).equals(FAE)) {
+                existe = true;
             }
         }
         return existe;

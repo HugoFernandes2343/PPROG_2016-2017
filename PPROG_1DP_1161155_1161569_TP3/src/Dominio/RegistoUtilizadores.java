@@ -6,6 +6,10 @@ public class RegistoUtilizadores {
 
     private ArrayList<Utilizador> listUtilizadores;
 
+    public RegistoUtilizadores(){
+    this.listUtilizadores= new ArrayList();
+    }    
+
     /**
      *
      * @param nomeUtulizador

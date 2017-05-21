@@ -1,28 +1,39 @@
 package Dominio;
 
-import Dominio.Organizador;
-import java.util.*;
+import java.util.ArrayList;
 
 public class ListOrganizadores {
 
-	private Collection<Organizador> organizador;
+    private ArrayList<Organizador> organizadores;
 
-	/**
-	 * 
-	 * @param organizador
-	 */
-	public boolean validarOrganizador(Organizador organizador) {
-		// TODO - implement ListOrganizadores.validarOrganizador
-		throw new UnsupportedOperationException();
-	}
+    public ListOrganizadores(ArrayList<Organizador> organizadores) {
+        this.organizadores = organizadores;
+    }
 
-	/**
-	 * 
-	 * @param organizadoresARegistar
-	 */
-	public void registarOrganizador(ArrayList<Organizador> organizadoresARegistar) {
-		// TODO - implement ListOrganizadores.registarOrganizador
-		throw new UnsupportedOperationException();
-	}
+    /**
+     *
+     * @param organizador
+     * @return
+     */
+    public boolean validarOrganizador(Organizador organizador) {
+        boolean cond = false;
+        for (int i = 0; i < organizadores.size(); i++) {
+            Organizador organizadorDoEvento = organizadores.get(i);
+            if (organizadorDoEvento.equals(organizador)) {
+                cond = true;
+                return cond;
+            }
+        }
+        return cond;
+    }
+
+    /**
+     *
+     * @param organizadoresARegistar
+     */
+    public void registarOrganizador(ArrayList<Organizador> organizadoresARegistar) {
+        // TODO - implement ListOrganizadores.registarOrganizador
+        throw new UnsupportedOperationException();
+    }
 
 }

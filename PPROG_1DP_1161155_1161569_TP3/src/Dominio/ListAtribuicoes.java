@@ -13,7 +13,7 @@ import java.util.ArrayList;
  */
 public class ListAtribuicoes {
 
-    private static ArrayList<Atribuicao> ATRIBUICAO;
+    private ArrayList<Atribuicao> ATRIBUICAO;
 
     public void criarAtribuicao() {
         // TODO - implement ListAtribuições.criarAtribuicao
@@ -29,6 +29,10 @@ public class ListAtribuicoes {
         throw new UnsupportedOperationException();
     }
 
+    public ArrayList<Atribuicao> getAtribuicoes() {
+        return this.ATRIBUICAO;
+    }
+
     /**
      *
      * @param atribuicao
@@ -42,9 +46,8 @@ public class ListAtribuicoes {
      *
      * @param atribuicao
      */
-    public void guardarAtribuicao(Atribuicao atribuicao) {
-        // TODO - implement ListAtribuições.guardarAtribuicao
-        throw new UnsupportedOperationException();
+    public void guardarAtribuicao(ArrayList<Atribuicao> atribuicoes) {
+        this.ATRIBUICAO = atribuicoes;
     }
 
     public Candidatura[] mostrarListaCandidaturasPorAvaliarDoFAE() {
@@ -72,7 +75,7 @@ public class ListAtribuicoes {
                 atribuicoes.remove(i);
             }
         }
-        for (int i =0;i<atribuicoes.size();i++) {
+        for (int i = 0; i < atribuicoes.size(); i++) {
             candidaturas.add(atribuicoes.get(i).getCandidatura());
         }
         return candidaturas;
