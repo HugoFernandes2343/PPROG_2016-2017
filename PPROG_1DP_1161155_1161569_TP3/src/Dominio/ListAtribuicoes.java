@@ -57,8 +57,12 @@ public class ListAtribuicoes {
         throw new UnsupportedOperationException();
     }
 
-    public ArrayList<Candidatura> getCandidaturasPorAvaliarDoFAE(FAE FAE) {
-        ArrayList<Candidatura> candidaturas = new ArrayList();
+    /**
+     *
+     * @param FAE utilizador do programa
+     * @return lisata de atribuicoes do FAE
+     */
+    public ArrayList<Atribuicao> getCandidaturasPorAvaliarDoFAE(FAE FAE) {
         ArrayList<Atribuicao> atribuicoes = new ArrayList();
         boolean avaliada = false;
         for (int i = 0; i < ATRIBUICAO.size(); i++) {
@@ -72,10 +76,8 @@ public class ListAtribuicoes {
                 atribuicoes.remove(i);
             }
         }
-        for (int i =0;i<atribuicoes.size();i++) {
-            candidaturas.add(atribuicoes.get(i).getCandidatura());
-        }
-        return candidaturas;
+        
+        return atribuicoes;
     }
 
 }

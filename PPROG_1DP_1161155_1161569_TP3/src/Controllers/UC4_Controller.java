@@ -13,11 +13,14 @@ import java.util.ArrayList;
 
 public class UC4_Controller {
 
+    private String nomeCandidatura;
     private FAE FAE;
     private CentroDeEventos centroDeEventos;
-
-    private static Evento EVENTO;
-    private static Candidatura CANDIDATURA;
+    private ArrayList<Atribuicao> atribuicoesFAE = new ArrayList();
+    private Avaliacao avaliacao;
+    private Evento evento;
+    private Candidatura candidatura;
+    private Atribuicao atribuicao;
     private static String DECISAO;
     private static String JUSTIFICACAO;
 
@@ -42,61 +45,71 @@ public class UC4_Controller {
     public ArrayList<Evento> mostrarListaEventosDoFAE() {
         ArrayList<Evento> listaEventosDoFAE = centroDeEventos.getRegistoEventos().mostrarListaEventosDoFAE(FAE);
         return listaEventosDoFAE;
-        
-    }  
-    
-    /**
-     *
-     * @param evento
-     * @return 
-     */
-    public ArrayList<Candidatura> MostrarListaCandidaturasPorAvaliarDoFAE(Evento evento) {
-        EVENTO = evento;
-        ArrayList<Candidatura> candidaturas = EVENTO.getCandidaturasPorAvaliarDoFAE(FAE);
-        return candidaturas;
+
     }
 
     /**
      *
-     * @param nomeCandidatura
+     * @param evento evento em que o FAE quer aprovar ou negar candidaturas
+     * @return lista de atribuicoes do FAE por avaliar
      */
-    public Candidatura mostrarCandidatura(String nomeCandidatura) {
-        // TODO - implement UC5_Controller.mostrarCandidatura
-        throw new UnsupportedOperationException();
+    public ArrayList<Atribuicao> MostrarListaCandidaturasPorAvaliarDoFAE(Evento evento) {
+        this.evento = evento;
+        atribuicoesFAE = evento.getCandidaturasPorAvaliarDoFAE(FAE);
+        return atribuicoesFAE;
     }
 
     /**
+     * Apresenta os dados de uma candidatura para o FAE a poder avaliar
      *
-     * @param veredicto
-     * @param justificacao
+     * @param nomeCandidatura nome introduzido pelo FAE depois de ver a lista de
+     * candidatiras que ainda nao avaliou
      */
-    public void defenirAvaliaçao(String veredicto, String justificacao) {
-        // TODO - implement UC5_Controller.defenirAvaliaçao
-        throw new UnsupportedOperationException();
+    public String mostrarDadosCandidatura(String nomeCandidatura) {
+        String dados = "";
+        this.nomeCandidatura = nomeCandidatura;
+        for (int i = 0; i < atribuicoesFAE.size(); i++) {
+            if (atribuicoesFAE.get(i).getCandidatura().getNomeCandidatura().equals(nomeCandidatura)) {
+                atribuicao = atribuicoesFAE.get(i);
+                candidatura = atribuicoesFAE.get(i).getCandidatura();
+                dados = candidatura.getDadosCandidatura();
+            }
+        }
+        return dados;
     }
 
     /**
+     * Cria uma avaliacao com o veredicto e justificacao que o FAE introduziu
      *
-     * @param candidatura
+     * @param veredicto decisao que o FAE introduz sobre a candidatura
+     * @param justificacao texto a justificar o veredicto
      */
-    public void removeCandidaturaDaListaCandidaturasPorAvaliarDoFAE(Candidatura candidatura) {
-        // TODO - implement UC5_Controller.removeCandidaturaDaListaCandidaturasPorAvaliarDoFAE
-        throw new UnsupportedOperationException();
+    public void defenirAvaliaçao(boolean veredicto, String justificacao) {
+        for (int i = 0; i < atribuicoesFAE.size(); i++) {
+            if (atribuicoesFAE.get(i).getCandidatura().equals(candidatura)) {
+                this.avaliacao = atribuicoesFAE.get(i).getAvaliacao();
+                avaliacao.setVeredicto(veredicto);
+                avaliacao.setJustificacao(justificacao);
+            }
+        }
+
     }
 
     /**
-     *
-     * @param avaliacoes
+     * Tira a atribuicao para a qual foi criada a avalicao da lista de
+     * atribuicoes que nao foram ainda avaliadas
      */
-    public void guardarAvaliacoes(Avaliacao[] avaliacoes) {
-        // TODO - implement UC5_Controller.guardarAvaliacoes
-        throw new UnsupportedOperationException();
+    public void removeCandidaturaDaListaCandidaturasPorAvaliarDoFAE() {
+        atribuicoesFAE.remove(atribuicao);
     }
 
-  
-
-    public void mostrarListaEventos() {
-
+    /**
+     * Guarda permanentemente a avaliacao criada
+     *
+     * @param avaliacao avaliacao criada ateriormente
+     */
+    public void guardarAvaliacoes(Avaliacao avaliacao) {
+        atribuicao.setAvaliacao(avaliacao);
     }
 
 }

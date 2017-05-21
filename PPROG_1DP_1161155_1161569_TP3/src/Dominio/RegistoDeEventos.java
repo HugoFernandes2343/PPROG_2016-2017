@@ -37,6 +37,10 @@ public class RegistoDeEventos {
         throw new UnsupportedOperationException();
     }
 
+    /**
+     *  Adiciona um novo evento ao registo
+     * @param evento avento a adicionar
+     */
     public void addEvento(Evento evento) {
         LISTA_EVENTOS.add(evento);
     }
@@ -56,17 +60,17 @@ public class RegistoDeEventos {
     }
 
     /**
-     *
-     * @param FAE
-     * @return
+     *  Mostra todos os eventos em que o FAE que esta a usar o programa é FAE
+     * @param FAE FAE que esta a utilizar o programa
+     * @return Lista de eventos em qual o utilizador é FAE
      */
     public ArrayList<Evento> mostrarListaEventosDoFAE(FAE FAE) {
         ArrayList<Evento> listaEventosDoFAE = new ArrayList();
         for (int i = 0; i < LISTA_EVENTOS.size(); i++) {
-         boolean FAEPertenceAoEvento = LISTA_EVENTOS.get(i).getListFAE().validaFAE(FAE);
-         if(FAEPertenceAoEvento = true){
-             listaEventosDoFAE.add(LISTA_EVENTOS.get(i));
-         }
+            boolean FAEPertenceAoEvento = LISTA_EVENTOS.get(i).getListFAE().validaFAE(FAE);
+            if (FAEPertenceAoEvento = true) {
+                listaEventosDoFAE.add(LISTA_EVENTOS.get(i));
+            }
         }
         return listaEventosDoFAE;
     }

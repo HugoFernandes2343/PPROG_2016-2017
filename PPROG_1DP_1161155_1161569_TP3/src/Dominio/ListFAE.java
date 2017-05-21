@@ -11,6 +11,11 @@ public class ListFAE {
         throw new UnsupportedOperationException();
     }
 
+    /**
+     *
+     * @param FAE utilizador do programa
+     * @return boolean que diz se existe FAE
+     */
     public boolean validaFAE(FAE FAE) {
         boolean existe = false;
         for (int i = 0; i < LISTA_FAE.size(); i++) {

@@ -15,8 +15,11 @@ public class Atribuicao {
     private Candidatura candidatura;
     private Avaliacao avaliacao;
 
-    
-
+    /**
+     *  
+     * @param FAE
+     * @param candidatura
+     */
     public Atribuicao(FAE FAE, Candidatura candidatura) {
         this.FAE = FAE;
         this.candidatura = candidatura;
@@ -55,11 +58,15 @@ public class Atribuicao {
      *
      * @param Avaliacao
      */
-    public void addAvaliacao(Avaliacao Avaliacao) {
-        // TODO - implement Atribuição.addAvaliacao
-        throw new UnsupportedOperationException();
+    public Avaliacao criarAvaliacao() {
+        Avaliacao A = new Avaliacao();
+        return A;
     }
 
+    /**
+     *
+     * @return
+     */
     public boolean existeAvaliacao() {
        boolean existe = true;
        if(avaliacao == null){
@@ -68,11 +75,35 @@ public class Atribuicao {
        return existe;
     }
 
+    /**
+     *
+     * @return
+     */
     public FAE getFAE() {
        return FAE;
     }
 
+    /**
+     *
+     * @return
+     */
     public Candidatura getCandidatura() {
         return candidatura;
+    }
+
+    /**
+     *
+     * @return
+     */
+    public Avaliacao getAvaliacao() {
+        return avaliacao;
+    }
+
+    /**
+     *
+     * @param avaliacao
+     */
+    public void setAvaliacao(Avaliacao avaliacao) {
+        this.avaliacao = avaliacao;
     }
 }

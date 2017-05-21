@@ -18,7 +18,7 @@ public class Avaliacao {
 
     public Avaliacao() {
         this.veredicto = JUSTIFICACAO_POR_OMISSAO;
-        this.justificacao=VEREDICTO_POR_OMISSAO;
+        this.justificacao = VEREDICTO_POR_OMISSAO;
     }
 
     /**
