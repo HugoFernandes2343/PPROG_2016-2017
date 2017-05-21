@@ -1,6 +1,9 @@
 package Dominio;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 
 public class Evento {
 
@@ -65,17 +68,30 @@ public class Evento {
     }
 
     public boolean existemCandidaturasPorAtribuir() {
-        // TODO - implement Evento.existemCandidaturasPorAtribuir
-        throw new UnsupportedOperationException();
+        boolean cond = false;
+        ArrayList<Atribuicao> atribuicoes = LISTA_ATRIBUICOES.getAtribuicoes();
+        if (atribuicoes.size() > 0) {
+            cond = true;
+            return cond;
+        }
+        return cond;
     }
 
     /**
      *
      * @param organizador
      */
+    public ArrayList<Atribuicao> getListaAtribuicoes() {
+        return LISTA_ATRIBUICOES.getAtribuicoes();
+    }
+
+    /**
+     *
+     * @param organizador
+     * @return >>>>>>> a8676aec20ba9fb323bc2e2b75bbbdaed56424d9
+     */
     public boolean verificarOrganizador(Organizador organizador) {
-        // TODO - implement Evento.verificarSeOrganizadorPertence
-        throw new UnsupportedOperationException();
+        return LISTA_ORGANIZADORES.validarOrganizador(organizador);
     }
 
     /**
@@ -89,6 +105,7 @@ public class Evento {
 
     /**
      * Devolve a descricao do evento
+     *
      * @return descricao do evento
      */
     public String getDescricao() {
@@ -97,6 +114,7 @@ public class Evento {
 
     /**
      * Devolve a data de inicio do evento
+     *
      * @return data de Inicio do evento
      */
     public String getDataInicio() {
@@ -105,6 +123,7 @@ public class Evento {
 
     /**
      * Devolve a data de fim do evento
+     *
      * @return data de fim do evento
      */
     public String getDataFim() {
@@ -112,7 +131,8 @@ public class Evento {
     }
 
     /**
-     *  Devolve a data de limite de submissao de candidatruas
+     * Devolve a data de limite de submissao de candidatruas
+     *
      * @return data Limite Candidaturas do evento
      */
     public String getDataLimiteCandidaturas() {
@@ -121,10 +141,25 @@ public class Evento {
 
     /**
      * Devolve a lista de FAE do evento
+     *
      * @return lista de FAE do evento
      */
     public ListFAE getListFAE() {
         return LISTA_FAE;
+    }
+
+    public boolean verifcarFAE(FAE FAE) {
+        // TODO - implement Evento.verifcarFAEEData
+        throw new UnsupportedOperationException();
+    }
+
+    public ArrayList<Candidatura> getListCandidaturas() {
+        return LISTA_CANDIDATURAS.getListaDeCandidaturas();
+    }
+
+    public boolean validaFAENaoOrganizador() {
+        // TODO - implement Evento.validaFAENaoOrganizador
+        throw new UnsupportedOperationException();
     }
 
     /**
@@ -136,13 +171,38 @@ public class Evento {
         return LISTA_ORGANIZADORES;
     }
 
+    public boolean validaDataFimSubmissoes() {
+        boolean cond = false;
+        Date dataAtual = new Date();
+        Date dataLimiteSubissao = null;
+        try {
+            SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy");
+            dataLimiteSubissao = format.parse(dataLimiteCandidaturas);
+        } catch (ParseException ex) {
+            ex.printStackTrace();
+        }
+        if (dataLimiteSubissao.before(dataAtual)) {
+            cond = true;
+            return cond;
+        }
+
+        return cond;
+         
+    }
+
     /**
      * Devolve a lista de atribuicoes do evento
      *
      * @return lista de atribuicoes do evento
      */
     public ListAtribuicoes getListAtribuicoes() {
+            
         return LISTA_ATRIBUICOES;
+        
+    }
+
+    public void setListAtribuicoes(ArrayList<Atribuicao> atribuicoes) {
+        LISTA_ATRIBUICOES.guardarAtribuicao(atribuicoes);
     }
 
     /**
@@ -209,27 +269,8 @@ public class Evento {
         this.dataLimiteCandidaturas = dataLimiteCandidaturas;
     }
 
-    public boolean verifcarFAE(FAE FAE) {
+    public boolean verificarFAE(FAE FAE) {
         // TODO - implement Evento.verifcarFAEEData
         throw new UnsupportedOperationException();
     }
-
-    public ListCandidaturas getListCandidaturas() {
-        return LISTA_CANDIDATURAS;
-    }
-
-    public boolean validaFAENaoOrganizador() {
-        // TODO - implement Evento.validaFAENaoOrganizador
-        throw new UnsupportedOperationException();
-    }
-
-    /**
-     *
-     * @return
-     */
-    public boolean validaDataFimSubmissoes() {
-        // TODO - implement Evento.validaDataFimSubmissoes
-        throw new UnsupportedOperationException();
-    }
-
 }

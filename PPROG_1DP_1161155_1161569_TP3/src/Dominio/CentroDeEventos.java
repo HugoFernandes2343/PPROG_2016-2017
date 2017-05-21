@@ -4,9 +4,10 @@ import java.util.ArrayList;
 
 public class CentroDeEventos {
 
-    private static RegistoUtilizadores REGISTO_UTILIZADORES;
-    private static RegistoDeEventos REGISTO_DE_EVENTOS;
-    private static ListGestorDeEventos LIST_GESTOR_DE_EVENTOS;
+    private static RegistoUtilizadores REGISTO_UTILIZADORES = new RegistoUtilizadores();
+    private static RegistoDeEventos REGISTO_DE_EVENTOS = new RegistoDeEventos();
+    private static ListGestorDeEventos LIST_GESTOR_DE_EVENTOS = new ListGestorDeEventos();
+    private static RegistoDeAlgoritmos REGISTO_DE_ALGORITMOS = new RegistoDeAlgoritmos();
 
     public CentroDeEventos() {
 
@@ -19,6 +20,10 @@ public class CentroDeEventos {
     public static Utilizador procurarUtilizador(String nomeOuEmail) {
         // TODO - implement CentroDeEventos.procurarUtilizador
         throw new UnsupportedOperationException();
+    }
+
+    public ArrayList<Object> procurarAlgoritmosDeAtribuicao() {
+        return REGISTO_DE_ALGORITMOS.getAlgoritmosDeAtribuicao();
     }
 
     public static Evento[] procurarEventosDentroDaDataDeSubmissao() {
@@ -69,6 +74,17 @@ public class CentroDeEventos {
      */
     public RegistoUtilizadores getRegistoUtilizadores() {
         return CentroDeEventos.REGISTO_UTILIZADORES;
+    }
+
+    public ListAtribuicoes getListAtribuicoes() {
+        // TODO - implement CentroDeEventos.getListAtribuicoes
+        throw new UnsupportedOperationException();
+    }
+
+    public void registarAtribuicao(Evento evento, ArrayList<Atribuicao> atribuicao) {
+
+        REGISTO_DE_EVENTOS.registarAtribuicaoDeEvento(evento, atribuicao);
+
     }
 
 }

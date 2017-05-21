@@ -4,7 +4,11 @@ import java.util.ArrayList;
 
 public class RegistoDeEventos {
 
-    private static ArrayList<Evento> LISTA_EVENTOS;
+    private ArrayList<Evento> LISTA_EVENTOS;
+
+    public RegistoDeEventos() {
+        this.LISTA_EVENTOS = new ArrayList();
+    }
 
     public ArrayList<Evento> getListaEventos() {
         return LISTA_EVENTOS;
@@ -26,6 +30,17 @@ public class RegistoDeEventos {
     public void registarEventos(Evento evento) {
         // TODO - implement RegistoDeEventos.registarEventos
         throw new UnsupportedOperationException();
+    }
+
+    public ArrayList<Evento> procurarEventosPosSubmissaoDoOrganizador(Organizador organizador) {
+        ArrayList<Evento> eventosDoOrganizador = new ArrayList();
+        for (int i = 0; i < LISTA_EVENTOS.size(); i++) {
+            Evento evento = LISTA_EVENTOS.get(i);
+            if (evento.verificarOrganizador(organizador) && evento.validaDataFimSubmissoes() && evento.existemCandidaturasPorAtribuir()) {
+                eventosDoOrganizador.add(evento);
+            }
+        }
+        return eventosDoOrganizador;
     }
 
     /**
@@ -73,6 +88,15 @@ public class RegistoDeEventos {
             }
         }
         return listaEventosDoFAE;
+    }
+
+    void registarAtribuicaoDeEvento(Evento evento, ArrayList<Atribuicao> atribuicao) {
+        for (int i = 0; i < LISTA_EVENTOS.size(); i++) {
+            Evento eventoRegistado = LISTA_EVENTOS.get(i);
+            if (eventoRegistado.equals(evento)) {
+                LISTA_EVENTOS.get(i).setListAtribuicoes(atribuicao);
+            }
+        }
     }
 
 }
