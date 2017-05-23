@@ -1,21 +1,25 @@
 package Dominio;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class CentroDeEventos {
+public class CentroDeEventos implements Serializable {
 
-    private static RegistoUtilizadores REGISTO_UTILIZADORES = new RegistoUtilizadores();
-    private static RegistoDeEventos REGISTO_DE_EVENTOS = new RegistoDeEventos();
-    private static ListGestorDeEventos LIST_GESTOR_DE_EVENTOS = new ListGestorDeEventos();
-    private static RegistoDeAlgoritmos REGISTO_DE_ALGORITMOS = new RegistoDeAlgoritmos();
+    private RegistoUtilizadores REGISTO_UTILIZADORES;
+    private RegistoDeEventos REGISTO_DE_EVENTOS;
+    private ListGestorDeEventos LIST_GESTOR_DE_EVENTOS;
+    private static RegistoDeAlgoritmos REGISTO_DE_ALGORITMOS;
 
     public CentroDeEventos() {
-
+    this.REGISTO_UTILIZADORES=new RegistoUtilizadores();  
+    this.LIST_GESTOR_DE_EVENTOS=new ListGestorDeEventos();
+    this.REGISTO_DE_EVENTOS=new RegistoDeEventos();
+    this.REGISTO_DE_ALGORITMOS=new RegistoDeAlgoritmos();
     }
 
     /**
      *
-     * @param nomeUtilizador
+     * @param nomeOuEmail
      */
     public static Utilizador procurarUtilizador(String nomeOuEmail) {
         // TODO - implement CentroDeEventos.procurarUtilizador
@@ -64,7 +68,7 @@ public class CentroDeEventos {
      * @return registo de eventos
      */
     public RegistoDeEventos getRegistoEventos() {
-        return CentroDeEventos.REGISTO_DE_EVENTOS;
+        return REGISTO_DE_EVENTOS;
     }
 
     /**
@@ -72,8 +76,16 @@ public class CentroDeEventos {
      *
      * @return registo de utilizadores
      */
-    public RegistoUtilizadores getRegistoUtilizadores() {
-        return CentroDeEventos.REGISTO_UTILIZADORES;
+    public ArrayList<Utilizador> getRegistoUtilizadores() {
+        return REGISTO_UTILIZADORES.getListUtilizadores();
+    }
+
+    public void setRegistoUtilizadores(ArrayList<Utilizador> userList) {
+        REGISTO_UTILIZADORES.setListUtilizadores(userList);
+    }
+
+    public void setListGestorDeEventos(ArrayList<GestorDeEventos> listaGestores) {
+        LIST_GESTOR_DE_EVENTOS.setListaDeGestores(listaGestores);
     }
 
     public ListAtribuicoes getListAtribuicoes() {

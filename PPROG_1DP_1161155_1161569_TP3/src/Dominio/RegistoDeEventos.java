@@ -1,8 +1,9 @@
 package Dominio;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class RegistoDeEventos {
+public class RegistoDeEventos implements Serializable{
 
     private ArrayList<Evento> LISTA_EVENTOS;
 

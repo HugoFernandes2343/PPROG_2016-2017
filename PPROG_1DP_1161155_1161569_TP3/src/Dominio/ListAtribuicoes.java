@@ -1,5 +1,6 @@
 package Dominio;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
 /*
@@ -11,7 +12,7 @@ import java.util.ArrayList;
  *
  * @author Hugo
  */
-public class ListAtribuicoes {
+public class ListAtribuicoes implements Serializable{
 
     private ArrayList<Atribuicao> ATRIBUICAO;
 

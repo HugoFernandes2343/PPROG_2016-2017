@@ -8,17 +8,19 @@ package Dominio;
 import Algoritmos.AlgoritmoPorDistribuicaoEquatitativaDeFAE;
 import Algoritmos.AlgoritmoPorNumeroDeFAE;
 import Algoritmos.AlgoritmoPorQualidadeDeFAE;
+import java.io.Serializable;
 import java.util.ArrayList;
 
 /**
  *
  * @author Hugo
  */
-public class RegistoDeAlgoritmos {
+public class RegistoDeAlgoritmos implements Serializable{
 
     private ArrayList<Object> algoritmosDeAtribuicao;
 
     public RegistoDeAlgoritmos() {
+        this.algoritmosDeAtribuicao=new ArrayList();
         carregarAlgoritmosDeAtribuicao();
     }
 

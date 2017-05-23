@@ -1,8 +1,9 @@
 package Dominio;
 
+import java.io.Serializable;
 import java.util.*;
 
-public class ListCandidaturas {
+public class ListCandidaturas implements Serializable{
 
     private ArrayList<Candidatura> candidatura;
 

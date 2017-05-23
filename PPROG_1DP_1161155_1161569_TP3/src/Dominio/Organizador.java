@@ -1,6 +1,8 @@
 package Dominio;
 
-public class Organizador {
+import java.io.Serializable;
+
+public class Organizador implements Serializable{
 
     private Utilizador utilizador;
 

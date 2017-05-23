@@ -11,43 +11,43 @@ import Dominio.RegistoDeEventos;
 import java.util.ArrayList;
 
 public class UC3_Controller {
-    
+
     private Organizador organizador;
     private CentroDeEventos centroDeEventos;
     private Evento evento;
     private ArrayList<Object> algoritmos;
     private ArrayList<Atribuicao> atribuicoesTemporarias;
-    
+
     public UC3_Controller(Organizador organizador, CentroDeEventos centroDeEventos) {
         this.organizador = organizador;
         this.centroDeEventos = centroDeEventos;
-        
+
     }
-    
+
     public ArrayList<Evento> procurarEventosPorAtribuirCandidaturasDoOrganizador() {
         RegistoDeEventos registo = centroDeEventos.getRegistoEventos();
         ArrayList<Evento> eventosDoOrganizadorValidados = registo.procurarEventosPosSubmissaoDoOrganizador(organizador);
         return eventosDoOrganizadorValidados;
     }
-    
+
     public void setEvento(Evento evento) {
         this.evento = evento;
     }
-    
+
     public void DefinirAlgoritmos() {
         algoritmos = centroDeEventos.procurarAlgoritmosDeAtribuicao();
     }
-    
+
     public void setListaTemporariaDeAtribuicoes(ArrayList<Atribuicao> atribuicoesTemporarias) {
         this.atribuicoesTemporarias = atribuicoesTemporarias;
-        
+
     }
-    
+
     public void registarAtribuicao() {
-        centroDeEventos.evento.setListAtribuicoes(atribuicoesTemporarias);
-        
+        centroDeEventos.registarAtribuicao(evento, atribuicoesTemporarias);
+
     }
-    
+
     public ArrayList<Atribuicao> executarAlgoritmoPorDistribuicaoEquatitativaDeFAE() {
         for (int i = 0; i < algoritmos.size(); i++) {
             if (algoritmos.get(i) instanceof AlgoritmoPorDistribuicaoEquatitativaDeFAE) {
@@ -55,10 +55,10 @@ public class UC3_Controller {
                 atribuicoesTemporarias = algoritmo.run(evento.getListFAE(), evento.getListCandidaturas());
             }
         }
-        
+
         return atribuicoesTemporarias;
     }
-    
+
     public ArrayList<Atribuicao> executarAlgoritmoPorNumeroDeFAE() {
         for (int i = 0; i < algoritmos.size(); i++) {
             if (algoritmos.get(i) instanceof AlgoritmoPorNumeroDeFAE) {
@@ -66,10 +66,10 @@ public class UC3_Controller {
                 atribuicoesTemporarias = algoritmo.run(evento.getListFAE(), evento.getListCandidaturas());
             }
         }
-        
+
         return atribuicoesTemporarias;
     }
-    
+
     public ArrayList<Atribuicao> executarAlgoritmoPorQualidadeDeFAE() {
         for (int i = 0; i < algoritmos.size(); i++) {
             if (algoritmos.get(i) instanceof AlgoritmoPorQualidadeDeFAE) {
@@ -77,7 +77,7 @@ public class UC3_Controller {
                 atribuicoesTemporarias = algoritmo.run(evento.getListFAE(), evento.getListCandidaturas());
             }
         }
-        
+
         return atribuicoesTemporarias;
     }
 }

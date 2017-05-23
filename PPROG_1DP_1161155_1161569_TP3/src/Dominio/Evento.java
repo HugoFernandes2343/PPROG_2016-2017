@@ -1,11 +1,12 @@
 package Dominio;
 
+import java.io.Serializable;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 
-public class Evento {
+public class Evento implements Serializable {
 
     private String local;
     private String titulo;
@@ -13,20 +14,11 @@ public class Evento {
     private String dataInicio;
     private String dataFim;
     private String dataLimiteCandidaturas;
-    private static String DADOS_POR_DEFENIR = "nao definido";
-    private static ListCandidaturas LISTA_CANDIDATURAS;
-    private static ListAtribuicoes LISTA_ATRIBUICOES;
-    private static ListFAE LISTA_FAE;
-    private static ListOrganizadores LISTA_ORGANIZADORES;
-
-    public Evento() {
-        this.titulo = DADOS_POR_DEFENIR;
-        this.descricao = DADOS_POR_DEFENIR;
-        this.local = DADOS_POR_DEFENIR;
-        this.dataFim = DADOS_POR_DEFENIR;
-        this.dataInicio = DADOS_POR_DEFENIR;
-        this.dataLimiteCandidaturas = DADOS_POR_DEFENIR;
-    }
+    private ListCandidaturas LISTA_CANDIDATURAS;
+    private ListAtribuicoes LISTA_ATRIBUICOES;
+    private ListFAE LISTA_FAE;
+    private ListOrganizadores LISTA_ORGANIZADORES;
+    private static final String DADOS_POR_DEFENIR = "nao definido";
 
     /**
      *
@@ -38,23 +30,25 @@ public class Evento {
      * @param dataLimiteCandidaturas data limite para a criacao de candidaturas
      *
      */
-    public void defenirEvento(String titulo, String descricao, String local, String dataInicio, String dataFim, String dataLimiteCandidaturas) {
-        setTitulo(titulo);
-        setDescricao(descricao);
-        setLocal(local);
-        setDataInicio(dataInicio);
-        setDataFim(dataFim);
-        setDataLimiteCandidaturas(dataLimiteCandidaturas);
+    public Evento(String titulo, String descricao, String local, String dataInicio, String dataFim, String dataLimiteCandidaturas) {
+        this.titulo = titulo;
+        this.descricao = descricao;
+        this.local = local;
+        this.dataFim = dataFim;
+        this.dataInicio = dataInicio;
+        this.dataLimiteCandidaturas = dataLimiteCandidaturas;
+        this.LISTA_ATRIBUICOES = new ListAtribuicoes();
+        this.LISTA_CANDIDATURAS = new ListCandidaturas();
+        this.LISTA_FAE = new ListFAE();
+        this.LISTA_ORGANIZADORES = new ListOrganizadores();
     }
 
-    public void addOrganizador() {
-        // TODO - implement Evento.novoOrganizador
-        throw new UnsupportedOperationException();
+    public void addOrganizadores(ArrayList<Organizador> organizadores) {
+        LISTA_ORGANIZADORES.setOrganizadores(organizadores);
     }
 
-    public void addFAE() {
-        // TODO - implement Evento.novoFAE
-        throw new UnsupportedOperationException();
+    public void addFAEs(ArrayList<FAE> FAEsARegistar) {
+        LISTA_FAE.setListaFAE(FAEsARegistar);
     }
 
     /**
@@ -144,8 +138,8 @@ public class Evento {
      *
      * @return lista de FAE do evento
      */
-    public ListFAE getListFAE() {
-        return LISTA_FAE;
+    public ArrayList<FAE> getListFAE() {
+        return LISTA_FAE.getListaDeFAE();
     }
 
     public boolean verifcarFAE(FAE FAE) {
@@ -187,7 +181,7 @@ public class Evento {
         }
 
         return cond;
-         
+
     }
 
     /**
@@ -196,9 +190,9 @@ public class Evento {
      * @return lista de atribuicoes do evento
      */
     public ListAtribuicoes getListAtribuicoes() {
-            
+
         return LISTA_ATRIBUICOES;
-        
+
     }
 
     public void setListAtribuicoes(ArrayList<Atribuicao> atribuicoes) {
