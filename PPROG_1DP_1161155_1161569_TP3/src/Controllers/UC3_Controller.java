@@ -44,7 +44,7 @@ public class UC3_Controller {
     }
     
     public void registarAtribuicao() {
-        centroDeEventos.evento.setListAtribuicoes(atribuicoesTemporarias);
+        centroDeEventos.registarAtribuicao(evento, atribuicoesTemporarias);
         
     }
     
@@ -52,7 +52,7 @@ public class UC3_Controller {
         for (int i = 0; i < algoritmos.size(); i++) {
             if (algoritmos.get(i) instanceof AlgoritmoPorDistribuicaoEquatitativaDeFAE) {
                 AlgoritmoPorDistribuicaoEquatitativaDeFAE algoritmo = (AlgoritmoPorDistribuicaoEquatitativaDeFAE) algoritmos.get(i);
-                atribuicoesTemporarias = algoritmo.run(evento.getListFAE(), evento.getListCandidaturas());
+                atribuicoesTemporarias = algoritmo.run(evento.getListFAE().getListaDeFAE(), evento.getListCandidaturas().getListaDeCandidaturas());
             }
         }
         
@@ -63,7 +63,7 @@ public class UC3_Controller {
         for (int i = 0; i < algoritmos.size(); i++) {
             if (algoritmos.get(i) instanceof AlgoritmoPorNumeroDeFAE) {
                 AlgoritmoPorNumeroDeFAE algoritmo = (AlgoritmoPorNumeroDeFAE) algoritmos.get(i);
-                atribuicoesTemporarias = algoritmo.run(evento.getListFAE(), evento.getListCandidaturas());
+                atribuicoesTemporarias = algoritmo.run(evento.getListFAE().getListaDeFAE(), evento.getListCandidaturas().getListaDeCandidaturas());
             }
         }
         
@@ -74,7 +74,7 @@ public class UC3_Controller {
         for (int i = 0; i < algoritmos.size(); i++) {
             if (algoritmos.get(i) instanceof AlgoritmoPorQualidadeDeFAE) {
                 AlgoritmoPorQualidadeDeFAE algoritmo = (AlgoritmoPorQualidadeDeFAE) algoritmos.get(i);
-                atribuicoesTemporarias = algoritmo.run(evento.getListFAE(), evento.getListCandidaturas());
+                atribuicoesTemporarias = algoritmo.run(evento.getListFAE().getListaDeFAE(), evento.getListCandidaturas().getListaDeCandidaturas());
             }
         }
         

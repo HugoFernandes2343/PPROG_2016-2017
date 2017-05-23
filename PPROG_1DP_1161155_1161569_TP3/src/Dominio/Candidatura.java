@@ -2,7 +2,6 @@ package Dominio;
 
 public class Candidatura {
 
-    private String nomeCandidatura = "";
     private String dadosCandidatura;
     private static String DADOS_POR_OMISSAO = "Sem dados";
 
@@ -22,14 +21,6 @@ public class Candidatura {
     }
 
     /**
-     *
-     * @param nomeCandidatura
-     */
-    public void setNomeCandidatura(String nomeCandidatura) {
-        this.nomeCandidatura = nomeCandidatura;
-    }
-
-    /**
      * @param dadosCandidatura the dadosCandidatura to set
      */
     public void setDadosCandidatura(String dadosCandidatura) {
@@ -39,14 +30,6 @@ public class Candidatura {
     public String toString() {
         return String.format("Dados da candidatura: %s", dadosCandidatura);
 
-    }
-
-    /**
-     *
-     * @return
-     */
-    public String getNomeCandidatura() {
-        return nomeCandidatura;
     }
 
 }

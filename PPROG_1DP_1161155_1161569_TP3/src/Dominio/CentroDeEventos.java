@@ -84,7 +84,10 @@ public class CentroDeEventos {
     public void registarAtribuicao(Evento evento, ArrayList<Atribuicao> atribuicao) {
 
         REGISTO_DE_EVENTOS.registarAtribuicaoDeEvento(evento, atribuicao);
+    }
+    public void registarAvaliacao(Evento evento,Atribuicao atribuicao,Avaliacao avaliacao) {
+
+        REGISTO_DE_EVENTOS.registarAvaliacao(evento, atribuicao ,avaliacao);
 
     }
-
 }

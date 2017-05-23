@@ -90,7 +90,7 @@ public class RegistoDeEventos {
         return listaEventosDoFAE;
     }
 
-    void registarAtribuicaoDeEvento(Evento evento, ArrayList<Atribuicao> atribuicao) {
+    public void registarAtribuicaoDeEvento(Evento evento, ArrayList<Atribuicao> atribuicao) {
         for (int i = 0; i < LISTA_EVENTOS.size(); i++) {
             Evento eventoRegistado = LISTA_EVENTOS.get(i);
             if (eventoRegistado.equals(evento)) {
@@ -98,5 +98,18 @@ public class RegistoDeEventos {
             }
         }
     }
-
+    public void registarAvaliacao(Evento evento,Atribuicao atribuicao ,Avaliacao avaliacao) {
+       for (int i = 0; i < LISTA_EVENTOS.size(); i++) {
+            Evento eventoRegistado = LISTA_EVENTOS.get(i);
+            if (eventoRegistado.equals(evento)) {
+                ArrayList<Atribuicao> listaAtribuicoes = eventoRegistado.getListAtribuicoes().getAtribuicoes();
+                for(int j= 0;j<listaAtribuicoes.size();j++){
+                    Atribuicao atribuicaoRegistada = listaAtribuicoes.get(j);
+                    if(atribuicaoRegistada.equals(atribuicao)){
+                        listaAtribuicoes.get(j).setAvaliacao(avaliacao);
+                    }
+                }
+            }
+        }
+    }
 }

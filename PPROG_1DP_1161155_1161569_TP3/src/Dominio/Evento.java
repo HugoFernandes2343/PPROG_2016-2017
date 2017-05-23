@@ -13,11 +13,11 @@ public class Evento {
     private String dataInicio;
     private String dataFim;
     private String dataLimiteCandidaturas;
-    private static String DADOS_POR_DEFENIR = "nao definido";
-    private static ListCandidaturas LISTA_CANDIDATURAS;
-    private static ListAtribuicoes LISTA_ATRIBUICOES;
-    private static ListFAE LISTA_FAE;
-    private static ListOrganizadores LISTA_ORGANIZADORES;
+    private String DADOS_POR_DEFENIR = "nao definido";
+    private ListCandidaturas LISTA_CANDIDATURAS;
+    private  ListAtribuicoes LISTA_ATRIBUICOES;
+    private  ListFAE LISTA_FAE;
+    private ListOrganizadores LISTA_ORGANIZADORES;
 
     public Evento() {
         this.titulo = DADOS_POR_DEFENIR;
@@ -57,16 +57,6 @@ public class Evento {
         throw new UnsupportedOperationException();
     }
 
-    /**
-     *
-     * @param FAE FAE que esta a utilizar
-     * @return devolve uma lista de atribuicoes para o FAE
-     */
-    public ArrayList<Atribuicao> getCandidaturasPorAvaliarDoFAE(FAE FAE) {
-        ArrayList<Atribuicao> atribuicao = LISTA_ATRIBUICOES.getCandidaturasPorAvaliarDoFAE(FAE);
-        return atribuicao;
-    }
-
     public boolean existemCandidaturasPorAtribuir() {
         boolean cond = false;
         ArrayList<Atribuicao> atribuicoes = LISTA_ATRIBUICOES.getAtribuicoes();
@@ -94,13 +84,15 @@ public class Evento {
         return LISTA_ORGANIZADORES.validarOrganizador(organizador);
     }
 
+   
     /**
-     * Devolve a lista de atribuicoes do evento
      *
-     * @return devolve a lista de atribuicoes do evento
+     * @param FAE FAE que esta a utilizar
+     * @return devolve uma lista de atribuicoes para o FAE
      */
-    public ListAtribuicoes getAtribuicoes() {
-        return LISTA_ATRIBUICOES;
+    public ArrayList<Atribuicao> getCandidaturasPorAvaliarDoFAE(FAE FAE) {
+        ArrayList<Atribuicao> atribuicao = LISTA_ATRIBUICOES.getCandidaturasPorAvaliarDoFAE(FAE);
+        return atribuicao;
     }
 
     /**
@@ -153,8 +145,13 @@ public class Evento {
         throw new UnsupportedOperationException();
     }
 
-    public ArrayList<Candidatura> getListCandidaturas() {
-        return LISTA_CANDIDATURAS.getListaDeCandidaturas();
+    /**
+     * devolve a lista de candidaturas do evento
+     *
+     * @return lista de candidaturas do evento
+     */
+    public ListCandidaturas getListCandidaturas() {
+        return LISTA_CANDIDATURAS;
     }
 
     public boolean validaFAENaoOrganizador() {
@@ -171,6 +168,11 @@ public class Evento {
         return LISTA_ORGANIZADORES;
     }
 
+    /**
+     * diz se a data de submissao ja passou
+     *
+     * @return boolean que diz se a data de submissao ja passou
+     */
     public boolean validaDataFimSubmissoes() {
         boolean cond = false;
         Date dataAtual = new Date();
@@ -187,7 +189,7 @@ public class Evento {
         }
 
         return cond;
-         
+
     }
 
     /**
@@ -196,9 +198,9 @@ public class Evento {
      * @return lista de atribuicoes do evento
      */
     public ListAtribuicoes getListAtribuicoes() {
-            
+
         return LISTA_ATRIBUICOES;
-        
+
     }
 
     public void setListAtribuicoes(ArrayList<Atribuicao> atribuicoes) {

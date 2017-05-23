@@ -16,7 +16,7 @@ public class Atribuicao {
     private Avaliacao avaliacao;
 
     /**
-     *  
+     *
      * @param FAE
      * @param candidatura
      */
@@ -68,11 +68,11 @@ public class Atribuicao {
      * @return
      */
     public boolean existeAvaliacao() {
-       boolean existe = true;
-       if(avaliacao == null){
-           existe = false;
-       }
-       return existe;
+        boolean existe = true;
+        if (avaliacao == null) {
+            existe = false;
+        }
+        return existe;
     }
 
     /**
@@ -80,7 +80,7 @@ public class Atribuicao {
      * @return
      */
     public FAE getFAE() {
-       return FAE;
+        return FAE;
     }
 
     /**

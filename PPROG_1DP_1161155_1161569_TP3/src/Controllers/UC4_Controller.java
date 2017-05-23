@@ -1,19 +1,15 @@
 package Controllers;
 
-import Dominio.Utilizador;
 import Dominio.Atribuicao;
 import Dominio.Avaliacao;
 import Dominio.Candidatura;
 import Dominio.CentroDeEventos;
 import Dominio.Evento;
 import Dominio.FAE;
-import Dominio.ListFAE;
-import Dominio.RegistoDeEventos;
 import java.util.ArrayList;
 
 public class UC4_Controller {
 
-    private String nomeCandidatura;
     private FAE FAE;
     private CentroDeEventos centroDeEventos;
     private ArrayList<Atribuicao> atribuicoesFAE = new ArrayList();
@@ -21,8 +17,6 @@ public class UC4_Controller {
     private Evento evento;
     private Candidatura candidatura;
     private Atribuicao atribuicao;
-    private static String DECISAO;
-    private static String JUSTIFICACAO;
 
     /**
      * construtor do controller
@@ -48,33 +42,36 @@ public class UC4_Controller {
 
     }
 
+    public void setEvento(Evento evento) {
+        this.evento = evento;
+    }
+
     /**
      *
-     * @param evento evento em que o FAE quer aprovar ou negar candidaturas
      * @return lista de atribuicoes do FAE por avaliar
      */
-    public ArrayList<Atribuicao> MostrarListaCandidaturasPorAvaliarDoFAE(Evento evento) {
-        this.evento = evento;
-        atribuicoesFAE = evento.getCandidaturasPorAvaliarDoFAE(FAE);
-        return atribuicoesFAE;
+    public ArrayList<Candidatura> mostrarListaCandidaturasPorAvaliarDoFAE() {
+        this.atribuicoesFAE = evento.getCandidaturasPorAvaliarDoFAE(FAE);
+        ArrayList<Candidatura> candidaturas = new ArrayList();
+        for (int i = 0; i < atribuicoesFAE.size(); i++) {
+            candidaturas.add(atribuicoesFAE.get(i).getCandidatura());
+        }
+        return candidaturas;
+    }
+
+    public void setCandidatura(Candidatura candidatura) {
+        this.candidatura = candidatura;
     }
 
     /**
      * Apresenta os dados de uma candidatura para o FAE a poder avaliar
      *
-     * @param nomeCandidatura nome introduzido pelo FAE depois de ver a lista de
-     * candidatiras que ainda nao avaliou
+     * @param candidatura
+     * @return
      */
-    public String mostrarDadosCandidatura(String nomeCandidatura) {
-        String dados = "";
-        this.nomeCandidatura = nomeCandidatura;
-        for (int i = 0; i < atribuicoesFAE.size(); i++) {
-            if (atribuicoesFAE.get(i).getCandidatura().getNomeCandidatura().equals(nomeCandidatura)) {
-                atribuicao = atribuicoesFAE.get(i);
-                candidatura = atribuicoesFAE.get(i).getCandidatura();
-                dados = candidatura.getDadosCandidatura();
-            }
-        }
+    public String mostrarDadosCandidatura() {
+        String dados;
+        dados = candidatura.getDadosCandidatura();
         return dados;
     }
 
@@ -87,12 +84,16 @@ public class UC4_Controller {
     public void defenirAvaliaçao(boolean veredicto, String justificacao) {
         for (int i = 0; i < atribuicoesFAE.size(); i++) {
             if (atribuicoesFAE.get(i).getCandidatura().equals(candidatura)) {
-                this.avaliacao = atribuicoesFAE.get(i).getAvaliacao();
+                this.avaliacao = new Avaliacao();
                 avaliacao.setVeredicto(veredicto);
                 avaliacao.setJustificacao(justificacao);
             }
         }
 
+    }
+
+    public Avaliacao getAvaliacao() {
+        return avaliacao;
     }
 
     /**
@@ -106,10 +107,15 @@ public class UC4_Controller {
     /**
      * Guarda permanentemente a avaliacao criada
      *
-     * @param avaliacao avaliacao criada ateriormente
      */
-    public void guardarAvaliacoes(Avaliacao avaliacao) {
-        atribuicao.setAvaliacao(avaliacao);
+    public void guardarAvaliacao() {
+        centroDeEventos.registarAvaliacao(evento, atribuicao, avaliacao);
     }
 
+    /**
+     * Elimina a avaliacao que estava a ser feita
+     */
+    public void eleminarAvaliacaoCriada() {
+        avaliacao=null;
+    }
 }

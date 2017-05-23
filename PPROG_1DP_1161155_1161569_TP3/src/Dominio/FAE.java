@@ -12,6 +12,10 @@ public class FAE {
         this.competencia = competencia;
     }
 
+    public FAE(Utilizador utilizador) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
     /**
      * @return the competencia
      */
