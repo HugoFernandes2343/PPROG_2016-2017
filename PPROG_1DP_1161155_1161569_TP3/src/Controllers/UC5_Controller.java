@@ -6,6 +6,7 @@ import Dominio.Evento;
 import Dominio.ListCandidaturas;
 import java.util.ArrayList;
 import Dominio.Utilizador;
+
 public class UC5_Controller {
 
     private Utilizador utilizador;
@@ -43,7 +44,8 @@ public class UC5_Controller {
     }
 
     /**
-     *  Define como evento escolhido o evento dado como parametro
+     * Define como evento escolhido o evento dado como parametro
+     *
      * @param evento evento escolhido
      */
     public void setEvento(Evento evento) {
@@ -63,10 +65,22 @@ public class UC5_Controller {
         return candidatura;
     }
 
+    public Candidatura getCandidatura() {
+        return candidatura;
+    }
+
     /**
-     * guarda permanentemente a candidatura
+     * Guarda permanentemente a avaliacao criada
+     *
      */
-    public void registarCandidatura() {
-        listaCandidaturas.guardarCandidatura(candidatura);
+    public void guardarCandidatura() {
+        centroDeEventos.registarCandidatura(evento, candidatura);
+    }
+
+    /**
+     * Elimina a avaliacao que estava a ser feita
+     */
+    public void eleminarCandidaturaCriada() {
+        candidatura = null;
     }
 }

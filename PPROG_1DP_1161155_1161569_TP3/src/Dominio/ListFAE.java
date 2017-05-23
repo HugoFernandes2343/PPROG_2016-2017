@@ -1,19 +1,15 @@
 package Dominio;
 
+import java.io.Serializable;
 import java.util.*;
 
-public class ListFAE {
+public class ListFAE implements Serializable{
 
-    private static ArrayList<FAE> LISTA_FAE;
-
-    public void novoFAE() {
-        // TODO - implement ListFAE.novoFAE
-        throw new UnsupportedOperationException();
-    }
+    private ArrayList<FAE> LISTA_FAE;
 
     /**
      *
-     * @return boolean que diz se existe FAE
+     * @return
      */
     public ArrayList<FAE> getListaDeFAE() {
         return LISTA_FAE;
@@ -29,14 +25,9 @@ public class ListFAE {
         return existe;
     }
 
-    public void registaFAE() {
-        // TODO - implement ListFAE.registaFAE
-        throw new UnsupportedOperationException();
-    }
 
-    public void registarFAE() {
-        // TODO - implement ListFAE.registarFAE
-        throw new UnsupportedOperationException();
+    public void setListaFAE(ArrayList<FAE> FAEsARegistar) {
+        this.LISTA_FAE=FAEsARegistar;
     }
 
 }

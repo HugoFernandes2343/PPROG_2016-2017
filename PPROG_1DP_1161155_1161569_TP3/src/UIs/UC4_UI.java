@@ -52,7 +52,7 @@ public class UC4_UI {
             pedirConfirmacao();
             System.out.println("A operacao foi realizada com sucesso");
         }else{
-         System.out.println("Não tem eventos com candidaturas por atribuir.");
+            System.out.println("Não tem eventos com candidaturas por atribuir.");
         }
     }
 

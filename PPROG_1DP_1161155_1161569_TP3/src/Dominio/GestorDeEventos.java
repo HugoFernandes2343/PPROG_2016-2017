@@ -1,18 +1,18 @@
 package Dominio;
 
-
 import Dominio.Utilizador;
+import java.io.Serializable;
 
+public class GestorDeEventos implements Serializable {
 
-public class GestorDeEventos {
+    private Utilizador utilizador;
 
-	/**
-	 * 
-	 * @param utilizador
-	 */
-	public void defenirGestorEventos(Utilizador utilizador) {
-		// TODO - implement GestorDeEventos.defenirGestorEventos
-		throw new UnsupportedOperationException();
-	}
+    /**
+     *
+     * @param utilizador
+     */
+    public GestorDeEventos(Utilizador utilizador) {
+        this.utilizador = utilizador;
+    }
 
 }

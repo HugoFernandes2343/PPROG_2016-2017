@@ -1,44 +1,20 @@
 package Dominio;
 
+import java.io.Serializable;
+import java.util.ArrayList;
 
+public class Congresso extends Evento implements Serializable {
 
+    private String tipo;
+    private ArrayList<Workshop> listaWorkshops;
+    private static final String TIPO_DE_EVENTO = "Congresso";
 
-public class Congresso extends Evento {
+    public Congresso(String titulo, String descricao, String local, String dataInicio, String dataFim, String dataLimiteCandidaturas) {
+        super(titulo, descricao, local, dataInicio, dataFim, dataLimiteCandidaturas);
+        tipo = TIPO_DE_EVENTO;
+    }
 
-	/**
-	 * 
-	 * @param organizador
-	 */
-	public boolean verificarSeOrganizadorPertence(Organizador organizador) {
-		// TODO - implement Congresso.verificarSeOrganizadorPertence
-		throw new UnsupportedOperationException();
-	}
-
-	/**
-	 * 
-	 * @param congresso
-	 */
-	public void criarWorkshop(Congresso congresso) {
-		// TODO - implement Congresso.criarWorkshop
-		throw new UnsupportedOperationException();
-	}
-
-	/**
-	 * 
-	 * @param workshop
-	 */
-	public void registarWorkshop(Workshop workshop) {
-		// TODO - implement Congresso.registarWorkshop
-		throw new UnsupportedOperationException();
-	}
-
-	/**
-	 * 
-	 * @param workshop
-	 */
-	public void guardarWorkshop(Workshop workshop) {
-		// TODO - implement Congresso.guardarWorkshop
-		throw new UnsupportedOperationException();
-	}
-
+    public String toString() {
+        return super.toString() + String.format("Tipo de evento: %s%n", tipo);
+    }
 }

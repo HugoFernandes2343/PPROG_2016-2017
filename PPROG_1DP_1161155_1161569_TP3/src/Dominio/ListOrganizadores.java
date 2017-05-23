@@ -1,13 +1,14 @@
 package Dominio;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class ListOrganizadores {
+public class ListOrganizadores implements Serializable{
 
     private ArrayList<Organizador> organizadores;
 
-    public ListOrganizadores(ArrayList<Organizador> organizadores) {
-        this.organizadores = organizadores;
+    public ListOrganizadores() {
+        this.organizadores = new ArrayList();
     }
 
     /**
@@ -31,9 +32,8 @@ public class ListOrganizadores {
      *
      * @param organizadoresARegistar
      */
-    public void registarOrganizador(ArrayList<Organizador> organizadoresARegistar) {
-        // TODO - implement ListOrganizadores.registarOrganizador
-        throw new UnsupportedOperationException();
+    public void setOrganizadores(ArrayList<Organizador> organizadoresARegistar) {
+        this.organizadores = organizadoresARegistar;
     }
 
 }

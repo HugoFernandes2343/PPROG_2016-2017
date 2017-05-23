@@ -1,14 +1,15 @@
 package Dominio;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class RegistoUtilizadores {
+public class RegistoUtilizadores implements Serializable{
 
     private ArrayList<Utilizador> listUtilizadores;
 
-    public RegistoUtilizadores(){
-    this.listUtilizadores= new ArrayList();
-    }    
+    public RegistoUtilizadores() {
+        this.listUtilizadores=new ArrayList();
+    }
 
     /**
      *
@@ -34,6 +35,10 @@ public class RegistoUtilizadores {
 
     public ArrayList<Utilizador> getListUtilizadores() {
         return listUtilizadores;
+    }
+
+    public void setListUtilizadores(ArrayList<Utilizador> userList) {
+        this.listUtilizadores = userList;
     }
 
 }

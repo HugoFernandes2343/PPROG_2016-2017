@@ -28,18 +28,20 @@ public class UC5_UI {
         this.utilizador = utilizador;
         this.controller = new UC5_Controller(this.utilizador, this.centroDeEventos);
     }
+
     public void run() {
         ArrayList<Evento> eventos = controller.mostrarListaEventosAtivos();
         if (eventos.size() > 0) {
             mostrarEventos(eventos);
             escolherEvento(eventos);
+            pedirEDefenirDadosCandidatura();
+            pedirConfirmacao();
+            System.out.println("Operacao concluida com sucesso");
+        } else {
+            System.out.println("Não tem eventos com candidaturas por atribuir.");
         }
     }
 
-    /**
-     *
-     * @param eventos
-     */
     private void mostrarEventos(ArrayList<Evento> eventos) {
         for (int i = 0; i < eventos.size(); i++) {
             int j = 0;
@@ -55,4 +57,22 @@ public class UC5_UI {
         Evento eventoEscolhido = eventos.get(i - 1);
         controller.setEvento(eventoEscolhido);
     }
+
+    private void pedirEDefenirDadosCandidatura() {
+        System.out.println("Introduza os dados da candidatura");
+        String dadosCandidatura = in.nextLine();
+        controller.defenirCandidatura(dadosCandidatura);
+    }
+
+    private void pedirConfirmacao() {
+        System.out.println(controller.getCandidatura().toString());
+        System.out.println("Confirma? (Sim ou Nao)");
+        String confirmacao = in.nextLine();
+        if (confirmacao.equalsIgnoreCase("Sim")) {
+            controller.guardarCandidatura();
+        } else {
+            controller.eleminarCandidaturaCriada();
+        }
+    }
+
 }

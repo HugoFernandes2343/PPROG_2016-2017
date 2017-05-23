@@ -1,6 +1,8 @@
 package Dominio;
 
-public class Candidatura {
+import java.io.Serializable;
+
+public class Candidatura implements Serializable {
 
     private String dadosCandidatura;
     private static String DADOS_POR_OMISSAO = "Sem dados";

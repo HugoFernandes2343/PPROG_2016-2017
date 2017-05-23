@@ -1,8 +1,11 @@
 package Dominio;
 
 import java.util.ArrayList;
+import java.io.Serializable;
+import java.util.*;
 
-public class ListCandidaturas {
+
+public class ListCandidaturas implements Serializable{
 
     private ArrayList<Candidatura> candidaturas;
 
@@ -40,6 +43,7 @@ public class ListCandidaturas {
     /**
      *
      * @param nomeCandidatura
+     * @return 
      */
     public ArrayList<Candidatura> getCandidatura(String nomeCandidatura) {
         return candidaturas;

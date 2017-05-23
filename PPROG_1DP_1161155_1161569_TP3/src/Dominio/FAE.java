@@ -1,8 +1,9 @@
 package Dominio;
 
 import Dominio.Utilizador;
+import java.io.Serializable;
 
-public class FAE {
+public class FAE implements Serializable {
 
     private Utilizador utilizador;
     private int competencia;

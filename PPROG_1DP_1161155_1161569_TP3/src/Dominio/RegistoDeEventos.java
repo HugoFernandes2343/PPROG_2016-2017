@@ -1,8 +1,9 @@
 package Dominio;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class RegistoDeEventos {
+public class RegistoDeEventos implements Serializable{
 
     private ArrayList<Evento> LISTA_EVENTOS;
 
@@ -81,10 +82,17 @@ public class RegistoDeEventos {
      */
     public ArrayList<Evento> mostrarListaEventosDoFAE(FAE FAE) {
         ArrayList<Evento> listaEventosDoFAE = new ArrayList();
+        ArrayList<FAE> listaFAE = new ArrayList();
         for (int i = 0; i < LISTA_EVENTOS.size(); i++) {
-            boolean FAEPertenceAoEvento = LISTA_EVENTOS.get(i).getListFAE().validaFAE(FAE);
-            if (FAEPertenceAoEvento = true) {
+            listaFAE = LISTA_EVENTOS.get(i).getListFAE();
+            for(int j=0;j<listaFAE.size();j++){
+                boolean FAEPertenceAoEvento;
+                if (listaFAE.get(i).equals(FAE)) {
+                FAEPertenceAoEvento = true;
+                }
+                if (FAEPertenceAoEvento=true) {
                 listaEventosDoFAE.add(LISTA_EVENTOS.get(i));
+                }
             }
         }
         return listaEventosDoFAE;
@@ -109,6 +117,15 @@ public class RegistoDeEventos {
                         listaAtribuicoes.get(j).setAvaliacao(avaliacao);
                     }
                 }
+            }
+        }
+    }
+
+    public void registarCandidatura(Evento evento, Candidatura candidatura) {
+         for (int i = 0; i < LISTA_EVENTOS.size(); i++) {
+            Evento eventoRegistado = LISTA_EVENTOS.get(i);
+            if (eventoRegistado.equals(evento)) {
+               eventoRegistado.getListCandidaturas().getListaDeCandidaturas().add(candidatura);
             }
         }
     }
