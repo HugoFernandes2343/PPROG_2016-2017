@@ -1,4 +1,4 @@
- CentroDeEventos CDE = new CentroDeEventos();
+CentroDeEventos centroEventos = new CentroDeEventos();
         Utilizador rp1 = new Utilizador("Jose Gomes", "cliente1", "jg1980@gmail.com", "19jg80");
         Utilizador rp2 = new Utilizador("Jose Carvalho", "cliente2", "jg1990@gmail.com", "19jc90");
         Utilizador rp3 = new Utilizador("Jose Fonseca", "cliente3", "jf1975@gmail.com", "19jf75");
@@ -17,7 +17,7 @@
         Utilizador org4 = new Utilizador("Antonio Teixeira", "gerente4", "at@gmail.com", "ger4at");
         Utilizador emporg1 = new Utilizador("Arnaldo Gomes", "empregadogerente1", "ag@gmail.com", "empger1ag");
         Utilizador emporg2 = new Utilizador("Nuno Fernandes", "empregadogerente2", "nf@gmail.com", "empger2nf");
-        Utilizador admin1 = new Utilizador("Hugo Carvalho", "getor1", "1161569@isep.ipp.pt", "admin1hc");
+        Utilizador admin1 = new Utilizador("Hugo Carvalho", "gestor1", "1161569@isep.ipp.pt", "admin1hc");
         Utilizador admin2 = new Utilizador("Hugo Fernandes", "gestor2", "1161155@isep.ipp.pt", "adminehf");
         ArrayList<Utilizador> lu = new ArrayList();
         ArrayList<GestorDeEventos> gde = new ArrayList();
@@ -43,8 +43,8 @@
         lu.add(admin2);
         gde.add(new GestorDeEventos(admin1));
         gde.add(new GestorDeEventos(admin2));
-        CDE.setRegistoUtilizadores(lu);
-        CDE.setListGestorDeEventos(gde);
+        centroEventos.setRegistoUtilizadores(lu);
+        centroEventos.setListGestorDeEventos(gde);
 
         Exposicao e1 = new Exposicao("LEGO", "Exposicao da nova colecao", "EXPONOR", "20/11/2017", "20/12/2017", "15/9/2017");
         ArrayList<FAE> listaFAE = new ArrayList();
@@ -59,6 +59,7 @@
         listaOrganizador.add(new Organizador(emporg2));
         e1.addFAEs(listaFAE);
         e1.addOrganizadores(listaOrganizador);
+        centroEventos.registarEvento(e1);
 
         Congresso c1 = new Congresso("Congresso nacional de medicos", "Abordagem a novos metodos inovadores de tratamento de cancros", "EXPONOR", "01/10/2017", "10/12/2017", "25/8/2017");
         ArrayList<FAE> listaFAE2 = new ArrayList();
@@ -71,5 +72,6 @@
         listaOrganizador.add(new Organizador(org4));
         listaOrganizador.add(new Organizador(org3));
         listaOrganizador.add(new Organizador(emporg1));
-        e1.addFAEs(listaFAE2);
-        e1.addOrganizadores(listaOrganizador2);
+        c1.addFAEs(listaFAE2);
+        c1.addOrganizadores(listaOrganizador2);
+        centroEventos.registarEvento(c1);

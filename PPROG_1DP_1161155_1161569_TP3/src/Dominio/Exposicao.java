@@ -14,7 +14,7 @@ import java.io.Serializable;
 public class Exposicao extends Evento implements Serializable {
 
     private String tipo;
-    private static final String TIPO_DE_EVENTO = "Congresso";
+    private static final String TIPO_DE_EVENTO = "Exposicao";
 
     public Exposicao(String titulo, String descricao, String local, String dataInicio, String dataFim, String dataLimiteCandidaturas) {
         super(titulo, descricao, local, dataInicio, dataFim, dataLimiteCandidaturas);

@@ -32,12 +32,15 @@ public class UC5_Controller {
      *
      * @return lista de eventos que estao ativos
      */
-    public ArrayList<Evento> mostrarListaEventosAtivos() {
+    public ArrayList<Evento> mostrarListaEventosAtivos(Utilizador utilizador) {
         ArrayList<Evento> listaDeEventos = centroDeEventos.getRegistoEventos().getListaEventos();
         for (int i = 0; i < listaDeEventos.size(); i++) {
             boolean eventoAtivo = listaDeEventos.get(i).validaDataFimSubmissoes();
             if (eventoAtivo == false) {
-                listaDeEventosAtivos.add(listaDeEventos.get(i));
+                if (!listaDeEventos.get(i).aindaNaoFezCandidatura(utilizador)) {
+                    listaDeEventosAtivos.add(listaDeEventos.get(i));
+                }
+
             }
         }
         return listaDeEventosAtivos;
@@ -59,8 +62,7 @@ public class UC5_Controller {
      * @return candidatura defenida para confirmacao
      */
     public Candidatura defenirCandidatura(String dadosCandidatura) {
-        listaCandidaturas = evento.getListCandidaturas();
-        candidatura = listaCandidaturas.criarCandidatura();
+        candidatura = new Candidatura(utilizador);
         candidatura.setDadosCandidatura(dadosCandidatura);
         return candidatura;
     }
@@ -77,10 +79,7 @@ public class UC5_Controller {
         centroDeEventos.registarCandidatura(evento, candidatura);
     }
 
-    /**
-     * Elimina a avaliacao que estava a ser feita
-     */
-    public void eleminarCandidaturaCriada() {
-        candidatura = null;
+    public boolean validaRepresentante() {
+        return centroDeEventos.verificarRepresentante(utilizador);
     }
 }

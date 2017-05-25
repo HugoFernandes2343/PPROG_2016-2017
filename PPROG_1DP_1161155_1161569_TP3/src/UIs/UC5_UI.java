@@ -30,29 +30,34 @@ public class UC5_UI {
     }
 
     public void run() {
-        ArrayList<Evento> eventos = controller.mostrarListaEventosAtivos();
-        if (eventos.size() > 0) {
-            mostrarEventos(eventos);
-            escolherEvento(eventos);
-            pedirEDefenirDadosCandidatura();
-            pedirConfirmacao();
-            System.out.println("Operacao concluida com sucesso");
+        if (!validarUtilizador()) {
+            ArrayList<Evento> eventos = controller.mostrarListaEventosAtivos(utilizador);
+            if (eventos.size() > 0) {
+                mostrarEventos(eventos);
+                escolherEvento(eventos);
+                pedirEDefenirDadosCandidatura();
+                pedirConfirmacao();
+                System.out.println("Operacao concluida com sucesso");
+            } else {
+                System.out.println("Não tem eventos com candidaturas por submeter.");
+            }
         } else {
-            System.out.println("Não tem eventos com candidaturas por atribuir.");
+            System.out.println("O staff do centro de eventos nao tem autorizacao para aceder.");
         }
     }
 
     private void mostrarEventos(ArrayList<Evento> eventos) {
+        int j = 0;
         for (int i = 0; i < eventos.size(); i++) {
-            int j = 0;
             System.out.println("--" + (j + 1) + "--");
-            eventos.get(i).toString();
+            System.out.println(eventos.get(i).toString());
             j++;
         }
     }
 
     private void escolherEvento(ArrayList<Evento> eventos) {
         System.out.println("Escolha um evento");
+        in.nextLine();
         int i = in.nextInt();
         Evento eventoEscolhido = eventos.get(i - 1);
         controller.setEvento(eventoEscolhido);
@@ -60,19 +65,26 @@ public class UC5_UI {
 
     private void pedirEDefenirDadosCandidatura() {
         System.out.println("Introduza os dados da candidatura");
+        in.nextLine();
         String dadosCandidatura = in.nextLine();
         controller.defenirCandidatura(dadosCandidatura);
     }
 
     private void pedirConfirmacao() {
         System.out.println(controller.getCandidatura().toString());
-        System.out.println("Confirma? (Sim ou Nao)");
-        String confirmacao = in.nextLine();
-        if (confirmacao.equalsIgnoreCase("Sim")) {
-            controller.guardarCandidatura();
-        } else {
-            controller.eleminarCandidaturaCriada();
-        }
+        String confirmacao;
+        do {
+            System.out.println("Confirmar candidatura. Digite s(sim) ou n(nao).");
+            in.nextLine();
+            confirmacao = in.nextLine();
+            if (confirmacao.equals("s")) {
+                controller.guardarCandidatura();
+            }
+        } while (!confirmacao.equals("s") && !confirmacao.equals("n"));
+    }
+
+    private boolean validarUtilizador() {
+        return controller.validaRepresentante();
     }
 
 }

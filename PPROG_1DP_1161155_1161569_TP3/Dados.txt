@@ -1,0 +1,55 @@
+--Utilizadores--
+Jose Gomes;cliente1;jg1980@gmail.com;19jg80
+Jose Carvalho;cliente2;jg1990@gmail.com;19jc90
+Jose Fonseca;cliente3;jf1975@gmail.com;19jf75
+Carlos Ferreira;cliente4;cf1977@gmail.com;19cf77
+Joao Soares;empregado1;jf@gmail.com;emp1js
+Andre Pinho;empregado2;ap@gmail.com;emp2ap
+Daniel Mota;empregado3;dm@gmail.com;emp3dm
+Cristiano Rodrigues;empregado4;cr@gmail.com;emp4cr
+Rui Correia;empregado5;rc@gmail.com;emp5rc
+Ruben Rodrigues;empregado6;rr@gmail.com;emp6rr
+Marco Castro;empregado7;mc@gmail.com;emp7mc
+Joana Pereira;empregado8;jp@gmail.com;emp8jp
+Ana Moreira;gerente1;am@gmail.com;ger1am
+Nuno Gomes;gerente2;ng@gmail.com;ger2ng
+Marco Andre;gerente3;ma@gmail.com;ger3ma
+Antonio Teixeira;gerente4;at@gmail.com;ger4at
+Arnaldo Gomes;empregadogerente1;ag@gmail.com;empger1ag
+Nuno Fernandes;empregadogerente2;nf@gmail.com;empger2nf
+Hugo Carvalho;gestor1;1161569@isep.ipp.pt;admin1hc
+Hugo Fernandes;gestor2;1161155@isep.ipp.pt;adminehf
+--GestorDeEventos--
+gestor1
+gestor2
+
+--Exposicao--
+LEGO;Exposicao da nova colecao;EXPONOR;20/11/2017;20/12/2017;15/9/2017
+--FAE--
+empregado1;5
+empregado2;5
+empregado3;5
+empregado4;3
+empregadogerente1;3
+--Organizador--
+gerente1
+gerente2
+empregadogerente2
+--Candidatura--
+--Evento--
+--Congresso--
+Congresso nacional de medicos;Abordagem a novos metodos inovadores de tratamento de cancros;EXPONOR;01/10/2017;10/12/2017;10/5/2017
+--FAE--
+empregado5;4
+empregado6;3
+empregado7;3
+empregado8;3
+empregadogerente2;4
+--Organizador--
+gerente4
+gerente3
+empregadogerente1
+--Candidatura--
+cliente1;Gostaria de participar no evento
+cliente2;Estamos em crescimento e seria uma boa oprotunidade de exibir o produto
+--Evento--

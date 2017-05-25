@@ -11,7 +11,7 @@ import java.io.Serializable;
  *
  * @author Hugo
  */
-public class Atribuicao implements Serializable{
+public class Atribuicao implements Serializable {
 
     private FAE FAE;
     private Candidatura candidatura;
@@ -27,35 +27,7 @@ public class Atribuicao implements Serializable{
         this.candidatura = candidatura;
         this.avaliacao = null;
     }
-
-    /**
-     *
-     * @param Veredicto
-     * @param justificacao
-     */
-    public void defenirAvaliaçao(String Veredicto, String justificacao) {
-        // TODO - implement Atribuição.defenirAvaliaçao
-        throw new UnsupportedOperationException();
-    }
-
-    /**
-     *
-     * @param avaliacoes
-     */
-    public void guardarAvaliacoes(Avaliacao[] avaliacoes) {
-        // TODO - implement Atribuição.guardarAvaliacoes
-        throw new UnsupportedOperationException();
-    }
-
-    /**
-     *
-     * @param Avaliacao
-     */
-    public boolean validaAvaliacao(Avaliacao Avaliacao) {
-        // TODO - implement Atribuição.validaAvaliacao
-        throw new UnsupportedOperationException();
-    }
-
+   
     /**
      *
      * @param Avaliacao
@@ -70,11 +42,11 @@ public class Atribuicao implements Serializable{
      * @return
      */
     public boolean existeAvaliacao() {
-        boolean existe = true;
+
         if (avaliacao == null) {
-            existe = false;
+            return false;
         }
-        return existe;
+        return true;
     }
 
     /**
@@ -107,5 +79,8 @@ public class Atribuicao implements Serializable{
      */
     public void setAvaliacao(Avaliacao avaliacao) {
         this.avaliacao = avaliacao;
+    }
+    public String toString(){
+    return FAE.toString()+candidatura.toString();
     }
 }

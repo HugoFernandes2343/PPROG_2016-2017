@@ -48,16 +48,17 @@ public class UC3_UI {
      * @param eventos
      */
     private void mostrarEventos(ArrayList<Evento> eventos) {
+        int j = 0;
         for (int i = 0; i < eventos.size(); i++) {
-            int j = 0;
             System.out.println("--" + (j + 1) + "--");
-            eventos.get(i).toString();
+            System.out.println(eventos.get(i).toString());
             j++;
         }
     }
 
     private void escolherEvento(ArrayList<Evento> eventos) {
         System.out.println("Escolha um evento");
+        in.nextLine();
         int i = in.nextInt();
         Evento eventoEscolhido = eventos.get(i - 1);
         controller.setEvento(eventoEscolhido);
@@ -120,6 +121,7 @@ public class UC3_UI {
         String op;
         do {
             System.out.println("Confirmar atribuicao. Digite s(sim) ou n(nao).");
+            in.nextLine();
             op = in.nextLine();
             if (op.equals("s")) {
                 return true;
@@ -130,9 +132,9 @@ public class UC3_UI {
     }
 
     private void mostrarAtribuicoes(ArrayList<Atribuicao> atribuicoes) {
+        int j = 0;
         for (int i = 0; i < atribuicoes.size(); i++) {
-            int j = 0;
-            atribuicoes.get(i).toString();
+            System.out.println(atribuicoes.get(i).toString());
         }
     }
 

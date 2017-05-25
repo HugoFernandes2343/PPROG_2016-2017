@@ -25,7 +25,7 @@ public class AlgoritmoPorDistribuicaoEquatitativaDeFAE implements Algoritmo {
         ArrayList<Atribuicao> atribuicoes = new ArrayList();
         nFAE = listaFAE.size();
         nCandidaturas = listaCandidaturas.size();
-        nAvaliadores = nCandidaturas / nFAE;
+        nAvaliadores = nFAE/ nCandidaturas ;
         for (int i = 0; i < nCandidaturas; i++) {
             for (int j = 0; j < nAvaliadores; j++) {
                 if (contFAE >= nFAE) {

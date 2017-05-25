@@ -11,55 +11,26 @@ public class CentroDeEventos implements Serializable {
     private static RegistoDeAlgoritmos REGISTO_DE_ALGORITMOS;
 
     public CentroDeEventos() {
-    this.REGISTO_UTILIZADORES=new RegistoUtilizadores();  
-    this.LIST_GESTOR_DE_EVENTOS=new ListGestorDeEventos();
-    this.REGISTO_DE_EVENTOS=new RegistoDeEventos();
-    this.REGISTO_DE_ALGORITMOS=new RegistoDeAlgoritmos();
+        this.REGISTO_UTILIZADORES = new RegistoUtilizadores();
+        this.LIST_GESTOR_DE_EVENTOS = new ListGestorDeEventos();
+        this.REGISTO_DE_EVENTOS = new RegistoDeEventos();
+        this.REGISTO_DE_ALGORITMOS = new RegistoDeAlgoritmos();
     }
 
     /**
      *
      * @param nomeOuEmail
      */
-    public static Utilizador procurarUtilizador(String nomeOuEmail) {
-        // TODO - implement CentroDeEventos.procurarUtilizador
-        throw new UnsupportedOperationException();
+    public Utilizador procurarUtilizador(String usernameOuEmail, String password) {
+        return REGISTO_UTILIZADORES.procurarUtilizador(usernameOuEmail, password);
     }
 
     public ArrayList<Object> procurarAlgoritmosDeAtribuicao() {
         return REGISTO_DE_ALGORITMOS.getAlgoritmosDeAtribuicao();
     }
 
-    public static Evento[] procurarEventosDentroDaDataDeSubmissao() {
-        // TODO - implement CentroDeEventos.procurarEventosComFAEDentroDaDataDeSubmissao
-        throw new UnsupportedOperationException();
-    }
-
-    /**
-     *
-     * @param nomeOrganizador
-     */
-    public ArrayList<Evento> listarEventosDoOrganizador(Organizador organizador) {
-        // TODO - implement CentroDeEventos.listarEventosDoOrganizadorValidosComCandidaturasPorAtribuir
-        throw new UnsupportedOperationException();
-    }
-
-    /**
-     *
-     * @param FAE
-     */
-    public Evento[] listarEventosDoFAE(FAE FAE) {
-        // TODO - implement CentroDeEventos.mostrarListaEventosDoFAEComCandidaturasProntasParaAvaliar
-        throw new UnsupportedOperationException();
-    }
-
-    /**
-     *
-     * @param evento
-     */
-    public void adicionarNaLista(Evento evento) {
-        // TODO - implement CentroDeEventos.adicionarNaLista
-        throw new UnsupportedOperationException();
+    public void registarEvento(Evento evento) {
+        REGISTO_DE_EVENTOS.addEvento(evento);
     }
 
     /**
@@ -69,6 +40,17 @@ public class CentroDeEventos implements Serializable {
      */
     public RegistoDeEventos getRegistoEventos() {
         return REGISTO_DE_EVENTOS;
+    }
+
+    public boolean verificarRepresentante(Utilizador utilizador) {
+        GestorDeEventos gestor = new GestorDeEventos(utilizador);
+        if (LIST_GESTOR_DE_EVENTOS.validarGestorDeEventos(gestor)) {
+            return true;
+        }
+        if (REGISTO_DE_EVENTOS.verificarOrganizadorOuFAE(utilizador)) {
+            return true;
+        }
+        return false;
     }
 
     /**
@@ -88,22 +70,18 @@ public class CentroDeEventos implements Serializable {
         LIST_GESTOR_DE_EVENTOS.setListaDeGestores(listaGestores);
     }
 
-    public ListAtribuicoes getListAtribuicoes() {
-        // TODO - implement CentroDeEventos.getListAtribuicoes
-        throw new UnsupportedOperationException();
-    }
-
     public void registarAtribuicao(Evento evento, ArrayList<Atribuicao> atribuicao) {
 
         REGISTO_DE_EVENTOS.registarAtribuicaoDeEvento(evento, atribuicao);
     }
-    public void registarAvaliacao(Evento evento,Atribuicao atribuicao,Avaliacao avaliacao) {
 
-        REGISTO_DE_EVENTOS.registarAvaliacao(evento, atribuicao ,avaliacao);
+    public void registarAvaliacao(Evento evento, Atribuicao atribuicao, Avaliacao avaliacao) {
+
+        REGISTO_DE_EVENTOS.registarAvaliacao(evento, atribuicao, avaliacao);
 
     }
 
-    public void registarCandidatura(Evento evento,Candidatura candidatura) {
-       REGISTO_DE_EVENTOS.registarCandidatura(evento,candidatura);
+    public void registarCandidatura(Evento evento, Candidatura candidatura) {
+        REGISTO_DE_EVENTOS.registarCandidatura(evento, candidatura);
     }
 }

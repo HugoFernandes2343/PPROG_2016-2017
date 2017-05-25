@@ -5,6 +5,7 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.Locale;
 
 public class Evento implements Serializable {
 
@@ -55,7 +56,8 @@ public class Evento implements Serializable {
     public boolean existemCandidaturasPorAtribuir() {
         boolean cond = false;
         ArrayList<Atribuicao> atribuicoes = LISTA_ATRIBUICOES.getAtribuicoes();
-        if (atribuicoes.size() > 0) {
+        ArrayList<Candidatura> candidaturas=LISTA_CANDIDATURAS.getListaDeCandidaturas();
+        if (atribuicoes.size() <= 0 && candidaturas.size()>0) {
             cond = true;
             return cond;
         }
@@ -77,6 +79,10 @@ public class Evento implements Serializable {
      */
     public boolean verificarOrganizador(Organizador organizador) {
         return LISTA_ORGANIZADORES.validarOrganizador(organizador);
+    }
+
+    public boolean verifcarFAE(FAE FAE) {
+        return LISTA_FAE.validaFAE(FAE);
     }
 
     /**
@@ -134,11 +140,6 @@ public class Evento implements Serializable {
         return LISTA_FAE.getListaDeFAE();
     }
 
-    public boolean verifcarFAE(FAE FAE) {
-        // TODO - implement Evento.verifcarFAEEData
-        throw new UnsupportedOperationException();
-    }
-
     /**
      * devolve a lista de candidaturas do evento
      *
@@ -146,11 +147,6 @@ public class Evento implements Serializable {
      */
     public ListCandidaturas getListCandidaturas() {
         return LISTA_CANDIDATURAS;
-    }
-
-    public boolean validaFAENaoOrganizador() {
-        // TODO - implement Evento.validaFAENaoOrganizador
-        throw new UnsupportedOperationException();
     }
 
     /**
@@ -265,8 +261,19 @@ public class Evento implements Serializable {
         this.dataLimiteCandidaturas = dataLimiteCandidaturas;
     }
 
-    public boolean verificarFAE(FAE FAE) {
-        // TODO - implement Evento.verifcarFAEEData
-        throw new UnsupportedOperationException();
+    public void registaCandidatura(Candidatura candidatura) {
+        LISTA_CANDIDATURAS.addCandidatura(candidatura);
+    }
+    public boolean aindaNaoFezCandidatura(Utilizador utilizador){
+    return LISTA_CANDIDATURAS.validarExistenciaDeCandidatura(utilizador);
+    }
+
+    /**
+     *
+     * @return
+     */
+    @Override
+    public String toString() {
+        return String.format("Titulo: %s%nDescricao: %s%nLocal: %s%nData de Inicio: %s%n Data de Fim: %s%nData limite de submissao de candidaturas: %s%n", titulo, descricao, local, dataInicio, dataFim, dataLimiteCandidaturas);
     }
 }

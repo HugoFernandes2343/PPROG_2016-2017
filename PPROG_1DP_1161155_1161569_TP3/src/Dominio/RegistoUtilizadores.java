@@ -3,21 +3,26 @@ package Dominio;
 import java.io.Serializable;
 import java.util.ArrayList;
 
-public class RegistoUtilizadores implements Serializable{
+public class RegistoUtilizadores implements Serializable {
 
     private ArrayList<Utilizador> listUtilizadores;
 
     public RegistoUtilizadores() {
-        this.listUtilizadores=new ArrayList();
+        this.listUtilizadores = new ArrayList();
     }
 
     /**
      *
      * @param nomeUtulizador
      */
-    public Utilizador procurarUtilizador(Utilizador utilizador) {
-        // TODO - implement RegistoUtilizadores.procurarUtilizador
-        throw new UnsupportedOperationException();
+    public Utilizador procurarUtilizador(String usernameOuEmail, String password) {
+        for (int i = 0; i < listUtilizadores.size(); i++) {
+            Utilizador utilizador = listUtilizadores.get(i);
+            if (utilizador.getPassword().equals(password) && (utilizador.getEmail().equalsIgnoreCase(usernameOuEmail) || utilizador.getUsername().equalsIgnoreCase(usernameOuEmail))) {
+                return utilizador;
+            }
+        }
+        return null;
     }
 
     /**

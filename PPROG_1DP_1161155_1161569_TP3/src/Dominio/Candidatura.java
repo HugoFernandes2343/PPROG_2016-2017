@@ -5,13 +5,15 @@ import java.io.Serializable;
 public class Candidatura implements Serializable {
 
     private String dadosCandidatura;
-    private static String DADOS_POR_OMISSAO = "Sem dados";
+    private Utilizador utilizador;
+    private static final String DADOS_POR_OMISSAO = "Sem dados";
 
     /**
      *
      */
-    public Candidatura() {
+    public Candidatura(Utilizador utilizador) {
         this.dadosCandidatura = DADOS_POR_OMISSAO;
+        this.utilizador = utilizador;
 
     }
 
@@ -32,6 +34,13 @@ public class Candidatura implements Serializable {
     public String toString() {
         return String.format("Dados da candidatura: %s", dadosCandidatura);
 
+    }
+
+    /**
+     * @return the utilizador
+     */
+    public Utilizador getUtilizador() {
+        return utilizador;
     }
 
 }

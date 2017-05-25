@@ -12,22 +12,12 @@ import java.util.ArrayList;
  *
  * @author Hugo
  */
-public class ListAtribuicoes implements Serializable{
+public class ListAtribuicoes implements Serializable {
 
     private ArrayList<Atribuicao> ATRIBUICAO;
 
-    public void criarAtribuicao() {
-        // TODO - implement ListAtribuições.criarAtribuicao
-        throw new UnsupportedOperationException();
-    }
-
-    /**
-     *
-     * @param atribuiçoes
-     */
-    public void guardarAtribuicoes(Atribuicao[] atribuiçoes) {
-        // TODO - implement ListAtribuições.guardarAtribuicoes
-        throw new UnsupportedOperationException();
+    public ListAtribuicoes() {
+        this.ATRIBUICAO = new ArrayList();
     }
 
     public ArrayList<Atribuicao> getAtribuicoes() {
@@ -69,12 +59,14 @@ public class ListAtribuicoes implements Serializable{
     public ArrayList<Atribuicao> getCandidaturasPorAvaliarDoFAE(FAE FAE) {
         ArrayList<Atribuicao> atribuicoes = new ArrayList();
         boolean avaliada = false;
+
         for (int i = 0; i < ATRIBUICAO.size(); i++) {
             avaliada = ATRIBUICAO.get(i).existeAvaliacao();
             if (avaliada = false) {
                 atribuicoes.add(ATRIBUICAO.get(i));
             }
         }
+
         for (int i = 0; i < atribuicoes.size(); i++) {
             if (!FAE.equals(atribuicoes.get(i).getFAE())) {
                 atribuicoes.remove(i);

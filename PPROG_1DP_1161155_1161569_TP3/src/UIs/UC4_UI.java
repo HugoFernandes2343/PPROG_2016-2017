@@ -45,36 +45,39 @@ public class UC4_UI {
             mostrarEventos(eventos);
             escolherEvento(eventos);
             ArrayList<Candidatura> candidaturas = controller.mostrarListaCandidaturasPorAvaliarDoFAE();
-            mostrarCandidaturas(candidaturas);
-            escolherCandidatura(candidaturas);
-            mostrarDadosCandidatura();
-            avaliarCandidatura();
-            pedirConfirmacao();
-            System.out.println("A operacao foi realizada com sucesso");
-        }else{
+            if (candidaturas.size() > 0) {
+                mostrarCandidaturas(candidaturas);
+                escolherCandidatura(candidaturas);
+                mostrarDadosCandidatura();
+                avaliarCandidatura();
+                pedirConfirmacao();
+                System.out.println("A operacao foi realizada com sucesso");
+            }
+        } else {
             System.out.println("Não tem eventos com candidaturas por atribuir.");
         }
     }
 
     private void mostrarEventos(ArrayList<Evento> eventos) {
+        int j = 0;
         for (int i = 0; i < eventos.size(); i++) {
-            int j = 0;
             System.out.println("--" + (j + 1) + "--");
-            eventos.get(i).toString();
+            System.out.println(eventos.get(i).toString());
             j++;
         }
     }
 
     private void escolherEvento(ArrayList<Evento> eventos) {
         System.out.println("Escolha um evento");
+        in.nextLine();
         int i = in.nextInt();
         Evento eventoEscolhido = eventos.get(i - 1);
         controller.setEvento(eventoEscolhido);
     }
 
     private void mostrarCandidaturas(ArrayList<Candidatura> candidaturas) {
+        int j = 0;
         for (int i = 0; i < candidaturas.size(); i++) {
-            int j = 0;
             System.out.println("--" + (j + 1) + "--");
             candidaturas.get(i).toString();
             j++;
@@ -83,6 +86,7 @@ public class UC4_UI {
 
     private void escolherCandidatura(ArrayList<Candidatura> candidaturas) {
         System.out.println("Escolha uma candidatura");
+        in.nextLine();
         int i = in.nextInt();
         Candidatura candidaturaEscolhida = candidaturas.get(i - 1);
         controller.setCandidatura(candidaturaEscolhida);
@@ -94,27 +98,33 @@ public class UC4_UI {
     }
 
     private void avaliarCandidatura() {
-        System.out.println("Aceita ou Rejeita a candidatura?");
-        boolean aprovacao;
-        String veredicto = in.nextLine();
-        if (veredicto.equalsIgnoreCase("Aceito")) {
-            aprovacao = true;
-        } else {
-            aprovacao = false;
-        }
+
+        boolean aprovacao = false;
+        String resposta;
+        do {
+            System.out.println("Regeita ou aceita candidatura. Digite s(sim) ou n(nao).");
+            in.nextLine();
+            resposta = in.nextLine();
+            if (resposta.equals("s")) {
+                aprovacao = true;
+            }
+        } while (!resposta.equals("s") && !resposta.equals("n"));
         System.out.println("Justifique a sua decisao com um pequeno texto.");
+        in.nextLine();
         String justificacao = in.nextLine();
         controller.defenirAvaliaçao(aprovacao, justificacao);
     }
 
     private void pedirConfirmacao() {
         System.out.println(controller.getAvaliacao().toString());
-        System.out.println("Confirma? (Sim ou Nao)");
-        String confirmacao = in.nextLine();
-        if (confirmacao.equalsIgnoreCase("Sim")) {
-            controller.guardarAvaliacao();
-        }else{
-            controller.eleminarAvaliacaoCriada();
-        }
+        String confirmacao;
+        do {
+            System.out.println("Confirmar atribuicao. Digite s(sim) ou n(nao).");
+            in.nextLine();
+            confirmacao = in.nextLine();
+            if (confirmacao.equals("s")) {
+                controller.guardarAvaliacao();
+            }
+        } while (!confirmacao.equals("s") && !confirmacao.equals("n"));
     }
 }

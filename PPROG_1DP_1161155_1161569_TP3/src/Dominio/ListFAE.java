@@ -3,7 +3,7 @@ package Dominio;
 import java.io.Serializable;
 import java.util.*;
 
-public class ListFAE implements Serializable{
+public class ListFAE implements Serializable {
 
     private ArrayList<FAE> LISTA_FAE;
 
@@ -18,16 +18,17 @@ public class ListFAE implements Serializable{
     public boolean validaFAE(FAE FAE) {
         boolean existe = false;
         for (int i = 0; i < LISTA_FAE.size(); i++) {
-            if (!LISTA_FAE.get(i).equals(FAE)) {
+            FAE FAEdoEvento = LISTA_FAE.get(i);
+            if (FAEdoEvento.getUtilizador().equals(FAE.getUtilizador())) {
                 existe = true;
+                return existe;
             }
         }
         return existe;
     }
 
-
     public void setListaFAE(ArrayList<FAE> FAEsARegistar) {
-        this.LISTA_FAE=FAEsARegistar;
+        this.LISTA_FAE = FAEsARegistar;
     }
 
 }

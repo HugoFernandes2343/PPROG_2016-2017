@@ -111,11 +111,4 @@ public class UC4_Controller {
     public void guardarAvaliacao() {
         centroDeEventos.registarAvaliacao(evento, atribuicao, avaliacao);
     }
-
-    /**
-     * Elimina a avaliacao que estava a ser feita
-     */
-    public void eleminarAvaliacaoCriada() {
-        avaliacao=null;
-    }
 }
