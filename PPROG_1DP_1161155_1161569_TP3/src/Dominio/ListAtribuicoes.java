@@ -62,14 +62,15 @@ public class ListAtribuicoes implements Serializable {
 
         for (int i = 0; i < ATRIBUICAO.size(); i++) {
             avaliada = ATRIBUICAO.get(i).existeAvaliacao();
-            if (avaliada = false) {
+            if (avaliada == false) {
                 atribuicoes.add(ATRIBUICAO.get(i));
             }
         }
 
-        for (int i = 0; i < atribuicoes.size(); i++) {
+        for (int i = atribuicoes.size()-1; i >= 0; i--) {
             if (!FAE.equals(atribuicoes.get(i).getFAE())) {
                 atribuicoes.remove(i);
+
             }
         }
 

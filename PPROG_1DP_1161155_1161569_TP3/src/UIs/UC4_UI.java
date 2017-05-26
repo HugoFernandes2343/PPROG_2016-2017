@@ -79,7 +79,7 @@ public class UC4_UI {
         int j = 0;
         for (int i = 0; i < candidaturas.size(); i++) {
             System.out.println("--" + (j + 1) + "--");
-            candidaturas.get(i).toString();
+            System.out.println(candidaturas.get(i).toString());
             j++;
         }
     }
@@ -110,7 +110,7 @@ public class UC4_UI {
             }
         } while (!resposta.equals("s") && !resposta.equals("n"));
         System.out.println("Justifique a sua decisao com um pequeno texto.");
-        in.nextLine();
+        in.nextLine();//tem que se repetir a frase
         String justificacao = in.nextLine();
         controller.defenirAvaliaçao(aprovacao, justificacao);
     }

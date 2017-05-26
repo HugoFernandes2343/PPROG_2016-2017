@@ -50,7 +50,8 @@ public class FAE implements Serializable {
         FAE outroFAE = (FAE) outroObjeto;
         return this.utilizador.equals(outroFAE.getUtilizador());
     }
-    public String toString(){
-    return utilizador.toString()+String.format("%nQualidade do FAE: %d%n", competencia);
+
+    public String toString() {
+        return utilizador.toString() + String.format("%nQualidade do FAE: %d%n", competencia);
     }
 }

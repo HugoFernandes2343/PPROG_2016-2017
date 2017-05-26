@@ -50,4 +50,14 @@ public class Avaliacao implements Serializable {
     public void setJustificacao(String justificacao) {
         this.justificacao = justificacao;
     }
+
+    public String toString() {
+        if (veredicto = true) {
+            String resposta = "Aprovada";
+            return String.format("Veredicto: %s", resposta) +String.format(" Justificação: %s", justificacao);
+        } else {
+            String resposta = "Rejeitada";
+            return String.format("Veredicto: %s", resposta)+String.format(" Justificação: %s", justificacao);
+        }
+    }
 }
