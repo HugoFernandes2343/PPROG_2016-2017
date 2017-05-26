@@ -81,6 +81,6 @@ public class Atribuicao implements Serializable {
         this.avaliacao = avaliacao;
     }
     public String toString(){
-    return FAE.toString()+candidatura.toString();
+    return FAE.toString()+candidatura.toString()+String.format("%n");
     }
 }

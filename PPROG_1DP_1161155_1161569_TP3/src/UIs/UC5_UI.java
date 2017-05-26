@@ -57,16 +57,16 @@ public class UC5_UI {
 
     private void escolherEvento(ArrayList<Evento> eventos) {
         System.out.println("Escolha um evento");
-        in.nextLine();
         int i = in.nextInt();
+        in.nextLine();
         Evento eventoEscolhido = eventos.get(i - 1);
         controller.setEvento(eventoEscolhido);
     }
 
     private void pedirEDefenirDadosCandidatura() {
         System.out.println("Introduza os dados da candidatura");
-        in.nextLine();
         String dadosCandidatura = in.nextLine();
+        in.nextLine();
         controller.defenirCandidatura(dadosCandidatura);
     }
 
@@ -75,8 +75,8 @@ public class UC5_UI {
         String confirmacao;
         do {
             System.out.println("Confirmar candidatura. Digite s(sim) ou n(nao).");
-            in.nextLine();
             confirmacao = in.nextLine();
+            in.nextLine();
             if (confirmacao.equals("s")) {
                 controller.guardarCandidatura();
             }

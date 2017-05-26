@@ -26,17 +26,24 @@ public class AlgoritmoPorQualidadeDeFAE implements Algoritmo {
     public ArrayList<Atribuicao> run(ArrayList<FAE> listaFAE, ArrayList<Candidatura> listaCandidaturas) {
         int nFAE, nCandidaturas, contFAE = 0;
         ArrayList<Atribuicao> atribuicoes = new ArrayList();
-        ArrayList<FAE> avaliadores = procurarFAERecomendados(listaFAE);
-        nFAE = avaliadores.size();
-        nCandidaturas = listaCandidaturas.size();
-        for (int i = 0; i < nCandidaturas; i++) {
-            if (contFAE >= nFAE) {
-                contFAE = 0;
+        ArrayList<FAE> avaliadores = new ArrayList();
+        do {
+            avaliadores = procurarFAERecomendados(listaFAE);
+            if (avaliadores.size() > 0) {
+                nFAE = avaliadores.size();
+                nCandidaturas = listaCandidaturas.size();
+                for (int i = 0; i < nCandidaturas; i++) {
+                    if (contFAE >= nFAE) {
+                        contFAE = 0;
+                    }
+                    Atribuicao atribuicao = new Atribuicao(avaliadores.get(contFAE), listaCandidaturas.get(i));
+                    atribuicoes.add(atribuicao);
+                    contFAE++;
+                }
+            } else {
+                System.out.println("Nao tem FAE com esse grau de qualidade.");
             }
-            Atribuicao atribuicao = new Atribuicao(avaliadores.get(contFAE), listaCandidaturas.get(i));
-            atribuicoes.add(atribuicao);
-            contFAE++;
-        }
+        } while (avaliadores.size() <= 0);
         return atribuicoes;
     }
 

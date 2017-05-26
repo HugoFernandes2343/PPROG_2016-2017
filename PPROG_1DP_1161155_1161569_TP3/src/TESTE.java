@@ -104,7 +104,7 @@ public class TESTE {
         do {
             System.out.println("Introduza o username ou email");
             usernameOuEmail = in.nextLine();
-            System.out.println("Introduza o username ou email");
+            System.out.println("Introduza a password");
             password = in.nextLine();
             utilizador = centroEventos.procurarUtilizador(usernameOuEmail, password);
             if (utilizador == null) {

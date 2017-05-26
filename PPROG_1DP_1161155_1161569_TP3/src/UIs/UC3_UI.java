@@ -58,8 +58,8 @@ public class UC3_UI {
 
     private void escolherEvento(ArrayList<Evento> eventos) {
         System.out.println("Escolha um evento");
-        in.nextLine();
         int i = in.nextInt();
+        in.nextLine();
         Evento eventoEscolhido = eventos.get(i - 1);
         controller.setEvento(eventoEscolhido);
     }
@@ -121,8 +121,8 @@ public class UC3_UI {
         String op;
         do {
             System.out.println("Confirmar atribuicao. Digite s(sim) ou n(nao).");
-            in.nextLine();
             op = in.nextLine();
+            in.nextLine();
             if (op.equals("s")) {
                 return true;
             }

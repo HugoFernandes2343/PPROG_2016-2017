@@ -28,16 +28,23 @@ public class AlgoritmoPorNumeroDeFAE implements Algoritmo {
         ArrayList<Atribuicao> atribuicoes = new ArrayList();
         nFAE = listaFAE.size();
         nCandidaturas = listaCandidaturas.size();
-        System.out.println("Este evento tem " + nFAE + " FAEs. Numero de FAE por candidatura?");
-        nAvaliadores = in.nextInt();
+        do {
+            System.out.println("Este evento tem " + nFAE + " FAEs. Numero de FAE por candidatura?");
+            nAvaliadores = in.nextInt();
+            in.nextLine();
+            if(nAvaliadores > nFAE || nAvaliadores <= 0){
+            System.out.println("Numero de FAEs em excesso ou numero nulo.");
+            }
+        } while (nAvaliadores > nFAE || nAvaliadores <= 0);
         for (int i = 0; i < nCandidaturas; i++) {
             for (int j = 0; j < nAvaliadores; j++) {
                 if (contFAE >= nFAE) {
                     contFAE = 0;
                 }
-                Atribuicao atribuicao = new Atribuicao(listaFAE.get(contFAE), listaCandidaturas.get(contCandidatura));
+                Atribuicao atribuicao = new Atribuicao(listaFAE.get(contFAE), listaCandidaturas.get(i));
                 atribuicoes.add(atribuicao);
                 contFAE++;
+                
             }
         }
         return atribuicoes;

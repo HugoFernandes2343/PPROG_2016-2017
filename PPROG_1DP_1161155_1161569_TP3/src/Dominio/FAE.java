@@ -52,6 +52,6 @@ public class FAE implements Serializable {
     }
 
     public String toString() {
-        return utilizador.toString() + String.format("%nQualidade do FAE: %d%n", competencia);
+        return utilizador.toString() + String.format("Qualidade do FAE: %d%n", competencia);
     }
 }

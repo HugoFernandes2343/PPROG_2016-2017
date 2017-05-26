@@ -69,8 +69,8 @@ public class UC4_UI {
 
     private void escolherEvento(ArrayList<Evento> eventos) {
         System.out.println("Escolha um evento");
-        in.nextLine();
         int i = in.nextInt();
+        in.nextLine();
         Evento eventoEscolhido = eventos.get(i - 1);
         controller.setEvento(eventoEscolhido);
     }
@@ -86,8 +86,8 @@ public class UC4_UI {
 
     private void escolherCandidatura(ArrayList<Candidatura> candidaturas) {
         System.out.println("Escolha uma candidatura");
-        in.nextLine();
         int i = in.nextInt();
+        in.nextLine();
         Candidatura candidaturaEscolhida = candidaturas.get(i - 1);
         controller.setCandidatura(candidaturaEscolhida);
     }
@@ -103,15 +103,15 @@ public class UC4_UI {
         String resposta;
         do {
             System.out.println("Regeita ou aceita candidatura. Digite s(sim) ou n(nao).");
-            in.nextLine();
             resposta = in.nextLine();
+            in.nextLine();
             if (resposta.equals("s")) {
                 aprovacao = true;
             }
         } while (!resposta.equals("s") && !resposta.equals("n"));
         System.out.println("Justifique a sua decisao com um pequeno texto.");
-        in.nextLine();//tem que se repetir a frase
         String justificacao = in.nextLine();
+        in.nextLine();
         controller.defenirAvaliaçao(aprovacao, justificacao);
     }
 
@@ -120,8 +120,8 @@ public class UC4_UI {
         String confirmacao;
         do {
             System.out.println("Confirmar atribuicao. Digite s(sim) ou n(nao).");
-            in.nextLine();
             confirmacao = in.nextLine();
+            in.nextLine();
             if (confirmacao.equals("s")) {
                 controller.guardarAvaliacao();
             }

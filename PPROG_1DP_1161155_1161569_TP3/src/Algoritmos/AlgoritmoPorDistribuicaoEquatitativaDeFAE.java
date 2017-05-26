@@ -31,7 +31,7 @@ public class AlgoritmoPorDistribuicaoEquatitativaDeFAE implements Algoritmo {
                 if (contFAE >= nFAE) {
                     contFAE = 0;
                 }
-                Atribuicao atribuicao = new Atribuicao(listaFAE.get(contFAE), listaCandidaturas.get(contCandidatura));
+                Atribuicao atribuicao = new Atribuicao(listaFAE.get(contFAE), listaCandidaturas.get(i));
                 atribuicoes.add(atribuicao);
                 contFAE++;
             }
