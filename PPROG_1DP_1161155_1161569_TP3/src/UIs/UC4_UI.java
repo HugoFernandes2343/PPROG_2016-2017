@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package UIs;
 
 import Dominio.CentroDeEventos;
@@ -16,7 +11,7 @@ import java.util.Scanner;
 
 /**
  *
- * @author hugod
+ * @author Hugo Fernandes; Hugo Carvalho
  */
 public class UC4_UI {
 
@@ -26,9 +21,10 @@ public class UC4_UI {
     private static Scanner in = new Scanner(System.in);
 
     /**
+     * construtor da UI do UC4
      *
-     * @param utilizador
-     * @param centroDeEventos
+     * @param utilizador utilizador que esta a usar a app
+     * @param centroDeEventos centro de eventos da app
      */
     public UC4_UI(Utilizador utilizador, CentroDeEventos centroDeEventos) {
         this.centroDeEventos = centroDeEventos;
@@ -112,7 +108,7 @@ public class UC4_UI {
         System.out.println("Justifique a sua decisao com um pequeno texto.");
         String justificacao = in.nextLine();
         in.nextLine();
-        controller.defenirAvaliaçao(aprovacao, justificacao);
+        controller.defenirAvaliacao(aprovacao, justificacao);
     }
 
     private void pedirConfirmacao() {

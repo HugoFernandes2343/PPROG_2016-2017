@@ -7,6 +7,10 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.Locale;
 
+/**
+ *
+ * @author Hugo FErnandes; Hugo Carvalho
+ */
 public class Evento implements Serializable {
 
     private String local;
@@ -45,19 +49,34 @@ public class Evento implements Serializable {
         this.LISTA_ORGANIZADORES = new ListOrganizadores();
     }
 
+    /**
+     * adiciona organizadores á lista de organizadores
+     *
+     * @param organizadores arraylist de organizadores para adicionar
+     */
     public void addOrganizadores(ArrayList<Organizador> organizadores) {
         LISTA_ORGANIZADORES.setOrganizadores(organizadores);
     }
 
+    /**
+     * adiciona FAE a lista de FAE
+     *
+     * @param FAEsARegistar arraylist de FAE a adicionar
+     */
     public void addFAEs(ArrayList<FAE> FAEsARegistar) {
         LISTA_FAE.setListaFAE(FAEsARegistar);
     }
 
+    /**
+     * Verifica se todas as candidaturas ja foram atribuidas
+     *
+     * @return boolean a confirmar ou negar que ha candidaturas por atribuir
+     */
     public boolean existemCandidaturasPorAtribuir() {
         boolean cond = false;
         ArrayList<Atribuicao> atribuicoes = LISTA_ATRIBUICOES.getAtribuicoes();
-        ArrayList<Candidatura> candidaturas=LISTA_CANDIDATURAS.getListaDeCandidaturas();
-        if (atribuicoes.size() <= 0 && candidaturas.size()>0) {
+        ArrayList<Candidatura> candidaturas = LISTA_CANDIDATURAS.getListaDeCandidaturas();
+        if (atribuicoes.size() <= 0 && candidaturas.size() > 0) {
             cond = true;
             return cond;
         }
@@ -65,27 +84,36 @@ public class Evento implements Serializable {
     }
 
     /**
+     * Devolve lista de atribuicoes
      *
-     * @param organizador
+     * @return lista de atribuicoes
      */
     public ArrayList<Atribuicao> getListaAtribuicoes() {
         return LISTA_ATRIBUICOES.getAtribuicoes();
     }
 
     /**
+     * verifica o organizador
      *
-     * @param organizador
-     * @return >>>>>>> a8676aec20ba9fb323bc2e2b75bbbdaed56424d9
+     * @param organizador objecto a ser validado
+     * @return boolean que confirma ou nao a validade do organizador
      */
     public boolean verificarOrganizador(Organizador organizador) {
         return LISTA_ORGANIZADORES.validarOrganizador(organizador);
     }
 
+    /**
+     * verifica o FAE
+     *
+     * @param FAE objecto a ser validado
+     * @return boolean que confirma ou nao a validade do FAE
+     */
     public boolean verifcarFAE(FAE FAE) {
         return LISTA_FAE.validaFAE(FAE);
     }
 
     /**
+     * Davolve a lista de candidaturas por avaliar do FAE
      *
      * @param FAE FAE que esta a utilizar
      * @return devolve uma lista de atribuicoes para o FAE
@@ -193,6 +221,11 @@ public class Evento implements Serializable {
 
     }
 
+    /**
+     * Defenir atribuicoes
+     *
+     * @param atribuicoes a defenir como a lista de atribuicoes
+     */
     public void setListAtribuicoes(ArrayList<Atribuicao> atribuicoes) {
         LISTA_ATRIBUICOES.guardarAtribuicao(atribuicoes);
     }
@@ -261,16 +294,30 @@ public class Evento implements Serializable {
         this.dataLimiteCandidaturas = dataLimiteCandidaturas;
     }
 
+    /**
+     * guarda permanentemente a candidatura
+     *
+     * @param candidatura objecto a guardar
+     */
     public void registaCandidatura(Candidatura candidatura) {
         LISTA_CANDIDATURAS.addCandidatura(candidatura);
     }
-    public boolean aindaNaoFezCandidatura(Utilizador utilizador){
-    return LISTA_CANDIDATURAS.validarExistenciaDeCandidatura(utilizador);
+
+    /**
+     * Verifica se ja ha candidaturas
+     *
+     * @param utilizador representante que esta a tentar fazer um a candidatura
+     * nova
+     * @return boolean que confirma se ainda nao ou ja fez alguma candidatura
+     */
+    public boolean aindaNaoFezCandidatura(Utilizador utilizador) {
+        return LISTA_CANDIDATURAS.validarExistenciaDeCandidatura(utilizador);
     }
 
     /**
+     * Devolve os dados do centor de eventos em forma de string
      *
-     * @return
+     * @return string para dar output
      */
     @Override
     public String toString() {

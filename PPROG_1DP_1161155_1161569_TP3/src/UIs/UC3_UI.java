@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package UIs;
 
 import Controllers.UC3_Controller;
@@ -16,7 +11,7 @@ import java.util.Scanner;
 
 /**
  *
- * @author Hugo
+ * @author Hugo Carvalho; Hugo Fernandes
  */
 public class UC3_UI {
 
@@ -25,12 +20,21 @@ public class UC3_UI {
     private CentroDeEventos centroDeEventos;
     private static Scanner in = new Scanner(System.in);
 
+    /**
+     * construtor da UI do UC3
+     *
+     * @param utilizador utilizador que esta a usar a app
+     * @param centroDeEventos centro de eventos da app
+     */
     public UC3_UI(Utilizador utilizador, CentroDeEventos centroDeEventos) {
         this.centroDeEventos = centroDeEventos;
         this.organizador = new Organizador(utilizador);
         this.controller = new UC3_Controller(this.organizador, this.centroDeEventos);
     }
 
+    /**
+     * metodo run desta UI
+     */
     public void run() {
         ArrayList<Evento> eventos = controller.procurarEventosPorAtribuirCandidaturasDoOrganizador();
         if (eventos.size() > 0) {
@@ -43,10 +47,6 @@ public class UC3_UI {
         }
     }
 
-    /**
-     *
-     * @param eventos
-     */
     private void mostrarEventos(ArrayList<Evento> eventos) {
         int j = 0;
         for (int i = 0; i < eventos.size(); i++) {

@@ -2,14 +2,9 @@ package Dominio;
 
 import java.io.Serializable;
 
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 /**
  *
- * @author Hugo
+ * @author Hugo Fernandes; Hugo Carvalho
  */
 public class Atribuicao implements Serializable {
 
@@ -18,19 +13,19 @@ public class Atribuicao implements Serializable {
     private Avaliacao avaliacao;
 
     /**
+     * Construtor da atribuicao
      *
-     * @param FAE
-     * @param candidatura
+     * @param FAE da atribuicao
+     * @param candidatura Candidatura da atribuicao
      */
     public Atribuicao(FAE FAE, Candidatura candidatura) {
         this.FAE = FAE;
         this.candidatura = candidatura;
         this.avaliacao = null;
     }
-   
+
     /**
-     *
-     * @param Avaliacao
+     * criar avaliacao para a atribuicao
      */
     public Avaliacao criarAvaliacao() {
         Avaliacao A = new Avaliacao();
@@ -38,8 +33,9 @@ public class Atribuicao implements Serializable {
     }
 
     /**
+     * verifica se ha avaliacao
      *
-     * @return
+     * @return boolean que diz se existe
      */
     public boolean existeAvaliacao() {
 
@@ -50,37 +46,42 @@ public class Atribuicao implements Serializable {
     }
 
     /**
-     *
-     * @return
+     * Devolve FAE da atribuicao
+     * @return FAE da atribuicao
      */
     public FAE getFAE() {
         return FAE;
     }
 
     /**
-     *
-     * @return
+     * Devolve candidatua da atribuicao
+     * @return candidatura da atribuicao
      */
     public Candidatura getCandidatura() {
         return candidatura;
     }
 
     /**
-     *
-     * @return
+     * Devolve avaliacao da atribuicao
+     * @return avaliacao da candidatura
      */
     public Avaliacao getAvaliacao() {
         return avaliacao;
     }
 
     /**
-     *
-     * @param avaliacao
+     * Define avalaicao da atribuicao
+     * @param avaliacao avaiacao a defenir
      */
     public void setAvaliacao(Avaliacao avaliacao) {
         this.avaliacao = avaliacao;
     }
-    public String toString(){
-    return FAE.toString()+candidatura.toString()+String.format("%n");
+
+    /**
+     * @return dados da atribuicao em forma de string
+     */
+    @Override
+    public String toString() {
+        return FAE.toString() + candidatura.toString() + String.format("%n");
     }
 }

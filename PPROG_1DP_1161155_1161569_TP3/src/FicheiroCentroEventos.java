@@ -15,7 +15,7 @@ import java.util.Scanner;
 
 /**
  *
- * @author Hugo Carvalho
+ * @author Hugo Carvalho; Hugo Fernandes
  */
 public class FicheiroCentroEventos {
 
@@ -58,6 +58,13 @@ public class FicheiroCentroEventos {
         }
     }
 
+    /**
+     * leitor de ficheiros
+     *
+     * @return objecto centro de eventos com os dados presentes no ficheiro ja
+     * instanciados
+     * @throws FileNotFoundException
+     */
     public CentroDeEventos lerFicheiroTxt() throws FileNotFoundException {
         String marcador = null;
         Scanner ficheiro = new Scanner(new File(NOME_FICHEIRO_TXT));
@@ -96,6 +103,11 @@ public class FicheiroCentroEventos {
         return centroEventos;
     }
 
+    /**
+     *
+     * @param dados linha de dados presentes no ficheiro
+     * @return objecto criado
+     */
     public Utilizador instanciarUtilizador(String dados) {
         String[] dadosIndiv = dados.split(";");
         String nome = dadosIndiv[0].trim();
@@ -106,6 +118,12 @@ public class FicheiroCentroEventos {
         return utilizador;
     }
 
+    /**
+     *
+     * @param dados dados linha de dados presentes no ficheiro
+     * @param utilizadores conjuto de utilizidaroes ja criados
+     * @return objecto criado
+     */
     public GestorDeEventos instanciarGestorDeEventos(String dados, ArrayList<Utilizador> utilizadores) {
         GestorDeEventos gestor = null;
         for (int i = 0; i < utilizadores.size(); i++) {
@@ -117,6 +135,14 @@ public class FicheiroCentroEventos {
         return gestor;
     }
 
+    /**
+     *
+     * @param utilizadores utilizadores ja criados
+     * @param ficheiro ficheiro que foi lido pelo prgrama
+     * @param marcador limite que define onde comeca cada objecto da exposicao
+     * @param dados linha de dados presentes no ficheiro
+     * @return
+     */
     public Exposicao instanciarExposicao(ArrayList<Utilizador> utilizadores, Scanner ficheiro, String marcador, String dados) {
         ArrayList<Organizador> organizadores = new ArrayList();
         ArrayList<FAE> FAEs = new ArrayList();
@@ -131,28 +157,28 @@ public class FicheiroCentroEventos {
         dataLimiteCandidaturas = dadosIndiv[5];
         Exposicao exp = new Exposicao(titulo, descricao, local, dataInicio, dataFim, dataLimiteCandidaturas);
         while (!marcador.equals("--Evento--")) {
-                dados = ficheiro.nextLine();
-                marcador = verificarMarcador(dados, marcador);
-                if (marcador.equals("--FAE--") && dados.compareTo(marcador) != 0) {
-                    FAE FAE = instanciarFAE(dados, utilizadores);
-                    if (FAE != null) {
-                        FAEs.add(FAE);
-                    }
-                }
-                if (marcador.equals("--Organizador--") && dados.compareTo(marcador) != 0) {
-                    Organizador organizador = instanciarOrganizador(dados, utilizadores);
-                    if (organizador != null) {
-                        organizadores.add(organizador);
-                    }
-                }
-                if (marcador.equals("--Candidatura--") && dados.compareTo(marcador) != 0) {
-                    Candidatura candidatura = instanciarCandidatura(dados, utilizadores);
-                    if (candidatura != null) {
-                        candidaturas.add(candidatura);
-                    }
+            dados = ficheiro.nextLine();
+            marcador = verificarMarcador(dados, marcador);
+            if (marcador.equals("--FAE--") && dados.compareTo(marcador) != 0) {
+                FAE FAE = instanciarFAE(dados, utilizadores);
+                if (FAE != null) {
+                    FAEs.add(FAE);
                 }
             }
-        
+            if (marcador.equals("--Organizador--") && dados.compareTo(marcador) != 0) {
+                Organizador organizador = instanciarOrganizador(dados, utilizadores);
+                if (organizador != null) {
+                    organizadores.add(organizador);
+                }
+            }
+            if (marcador.equals("--Candidatura--") && dados.compareTo(marcador) != 0) {
+                Candidatura candidatura = instanciarCandidatura(dados, utilizadores);
+                if (candidatura != null) {
+                    candidaturas.add(candidatura);
+                }
+            }
+        }
+
         exp.addFAEs(FAEs);
         exp.addOrganizadores(organizadores);
         for (int i = 0; i < candidaturas.size(); i++) {
@@ -162,6 +188,14 @@ public class FicheiroCentroEventos {
         return exp;
     }
 
+    /**
+     *
+     * @param utilizadores utilizadores ja criados
+     * @param ficheiro ficheiro que foi lido pelo prgrama
+     * @param marcador limite que define onde comeca cada objecto da exposicao
+     * @param dados linha de dados presentes no ficheiro
+     * @return objecto criado
+     */
     public Congresso instanciarCongresso(ArrayList<Utilizador> utilizadores, Scanner ficheiro, String marcador, String dados) {
         ArrayList<Organizador> organizadores = new ArrayList();
         ArrayList<FAE> FAEs = new ArrayList();
@@ -178,7 +212,7 @@ public class FicheiroCentroEventos {
         while (!marcador.equals("--Evento--")) {
             dados = ficheiro.nextLine();
             marcador = verificarMarcador(dados, marcador);
-        
+
             if (marcador.equals("--FAE--") && dados.compareTo(marcador) != 0) {
                 FAE FAE = instanciarFAE(dados, utilizadores);
                 if (FAE != null) {
@@ -207,6 +241,12 @@ public class FicheiroCentroEventos {
         return cong;
     }
 
+    /**
+     *
+     * @param dados linha de dados lida no ficheiro
+     * @param utilizadores utilizadores ja existentes
+     * @return objecto criado
+     */
     public FAE instanciarFAE(String dados, ArrayList<Utilizador> utilizadores) {
         FAE FAE = null;
         String[] dadosIndiv = dados.split(";");
@@ -221,6 +261,12 @@ public class FicheiroCentroEventos {
         return FAE;
     }
 
+    /**
+     *
+     * @param dados linha de dados lida no ficheiro
+     * @param utilizadores utilizadores ja existentes
+     * @return objecto criado
+     */
     public Organizador instanciarOrganizador(String dados, ArrayList<Utilizador> utilizadores) {
         Organizador organizador = null;
         for (int i = 0; i < utilizadores.size(); i++) {
@@ -232,6 +278,12 @@ public class FicheiroCentroEventos {
         return organizador;
     }
 
+    /**
+     *
+     * @param dados linha de dados lida no ficheiro
+     * @param utilizadores utilizadores ja criados
+     * @return objecto criado
+     */
     public Candidatura instanciarCandidatura(String dados, ArrayList<Utilizador> utilizadores) {
         Candidatura candidatura = null;
         String[] dadosIndiv = dados.split(";");
@@ -247,6 +299,13 @@ public class FicheiroCentroEventos {
         return candidatura;
     }
 
+    /**
+     *
+     * @param dados linha de dados lida do ficheiro
+     * @param marcador delimitador que define quando que tipo de objecto é que
+     * os dados que o seguem se referem
+     * @return
+     */
     public String verificarMarcador(String dados, String marcador) {
         if (dados.equals("--Utilizadores--")) {
             marcador = "--Utilizadores--";

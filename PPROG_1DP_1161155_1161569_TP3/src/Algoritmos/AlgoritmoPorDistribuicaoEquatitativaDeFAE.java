@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Algoritmos;
 
 import Dominio.Atribuicao;
@@ -12,13 +7,22 @@ import java.util.ArrayList;
 
 /**
  *
- * @author Hugo
+ * @author Hugo Fernandes; Hugo Carvalho
  */
 public class AlgoritmoPorDistribuicaoEquatitativaDeFAE implements Algoritmo {
 
+    /**
+     * Construtor de objectos do tipo algoritmo por distrubuicao equatitativa de FAE
+     */
     public AlgoritmoPorDistribuicaoEquatitativaDeFAE() {
     }
 
+    /**
+     *
+     * @param listaFAE lista de FAE do evento pela qual serao distribuidas as candidadturas
+     * @param listaCandidaturas lista de candidaturas a distribuir 
+     * @return atribuicoes feitas de acordo com este algoritmo
+     */
     @Override
     public ArrayList<Atribuicao> run(ArrayList<FAE> listaFAE, ArrayList<Candidatura> listaCandidaturas) {
         int nFAE, nCandidaturas, nAvaliadores, contFAE = 0, contCandidatura = 0;

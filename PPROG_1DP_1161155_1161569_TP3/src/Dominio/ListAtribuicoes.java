@@ -3,39 +3,39 @@ package Dominio;
 import java.io.Serializable;
 import java.util.ArrayList;
 
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 /**
  *
- * @author Hugo
+ * @author Hugo Fernandes; Hugo Carvalho
  */
 public class ListAtribuicoes implements Serializable {
 
     private ArrayList<Atribuicao> ATRIBUICAO;
 
+    /**
+     * construtor da lista de atribuicoes
+     */
     public ListAtribuicoes() {
         this.ATRIBUICAO = new ArrayList();
     }
 
+    /**
+     * Devolve a lista de atribuicoes
+     *
+     * @return lista de atribuicoes
+     */
     public ArrayList<Atribuicao> getAtribuicoes() {
         return this.ATRIBUICAO;
     }
 
-    /**
-     *
-     * @param atribuicao
-     */
     public boolean validarAtribuicao(Atribuicao atribuicao) {
         // TODO - implement ListAtribuições.validarAtribuicao
         throw new UnsupportedOperationException();
     }
 
     /**
+     * guarda permanentemente as atribuicoes
      *
-     * @param atribuicao
+     * @param atribuicoes Lista de atribuicoes
      */
     public void guardarAtribuicao(ArrayList<Atribuicao> atribuicoes) {
         this.ATRIBUICAO = atribuicoes;
@@ -52,9 +52,10 @@ public class ListAtribuicoes implements Serializable {
     }
 
     /**
+     * Devolve ass candidaturas por avaliar do FAE
      *
      * @param FAE utilizador do programa
-     * @return lisata de atribuicoes do FAE
+     * @return lista de atribuicoes do FAE
      */
     public ArrayList<Atribuicao> getCandidaturasPorAvaliarDoFAE(FAE FAE) {
         ArrayList<Atribuicao> atribuicoes = new ArrayList();
@@ -67,7 +68,7 @@ public class ListAtribuicoes implements Serializable {
             }
         }
 
-        for (int i = atribuicoes.size()-1; i >= 0; i--) {
+        for (int i = atribuicoes.size() - 1; i >= 0; i--) {
             if (!FAE.equals(atribuicoes.get(i).getFAE())) {
                 atribuicoes.remove(i);
 
