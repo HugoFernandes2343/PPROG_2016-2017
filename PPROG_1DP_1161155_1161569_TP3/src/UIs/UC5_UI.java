@@ -1,10 +1,5 @@
 package UIs;
 
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 import Dominio.CentroDeEventos;
 import Dominio.Utilizador;
 import Controllers.UC5_Controller;
@@ -14,7 +9,7 @@ import java.util.Scanner;
 
 /**
  *
- * @author hugod
+ * @author Hugo Fernandes; Hugo Carvalho
  */
 public class UC5_UI {
 
@@ -23,12 +18,21 @@ public class UC5_UI {
     private CentroDeEventos centroDeEventos;
     private static Scanner in = new Scanner(System.in);
 
+    /**
+     * construtor da UI do UC5
+     *
+     * @param utilizador utilizador que esta a usar a app
+     * @param centroDeEventos centro de eventos da app
+     */
     public UC5_UI(Utilizador utilizador, CentroDeEventos centroDeEventos) {
         this.centroDeEventos = centroDeEventos;
         this.utilizador = utilizador;
         this.controller = new UC5_Controller(this.utilizador, this.centroDeEventos);
     }
 
+    /**
+     * metodo run da funcionalidade do UC5
+     */
     public void run() {
         if (!validarUtilizador()) {
             ArrayList<Evento> eventos = controller.mostrarListaEventosAtivos(utilizador);

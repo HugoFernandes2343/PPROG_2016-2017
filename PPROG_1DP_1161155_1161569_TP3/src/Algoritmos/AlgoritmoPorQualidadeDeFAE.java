@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Algoritmos;
 
 import Dominio.Atribuicao;
@@ -13,15 +8,24 @@ import java.util.Scanner;
 
 /**
  *
- * @author Hugo
+ * @author Hugo Carvalho; Hugo Fernandes
  */
 public class AlgoritmoPorQualidadeDeFAE implements Algoritmo {
 
     private Scanner in = new Scanner(System.in);
 
+    /**
+     *Construtor de um objecto do tipo algoritmo por qualidade de FAE
+     */
     public AlgoritmoPorQualidadeDeFAE() {
     }
 
+    /**
+     *
+     * @param listaFAE lista de FAE do evento pela qual serao distribuidas as candidadturas
+     * @param listaCandidaturas lista de candidaturas a distribuir 
+     * @return atribuicoes feitas de acordo com este algoritmo
+     */
     @Override
     public ArrayList<Atribuicao> run(ArrayList<FAE> listaFAE, ArrayList<Candidatura> listaCandidaturas) {
         int nFAE, nCandidaturas, contFAE = 0;

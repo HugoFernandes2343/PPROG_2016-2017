@@ -8,6 +8,10 @@ import Dominio.Evento;
 import Dominio.FAE;
 import java.util.ArrayList;
 
+/**
+ *
+ * @author Hugo Fernandes; Hugo Carvalho
+ */
 public class UC4_Controller {
 
     private FAE FAE;
@@ -31,9 +35,6 @@ public class UC4_Controller {
 
     /**
      * mostra a lista de eventos do FAE
-     *
-     * @param FAE FAE que esta a usar o programa
-     * @param centrosDeEventos centro de eventos da app
      * @return lista de eventos do FAE
      */
     public ArrayList<Evento> mostrarListaEventosDoFAE() {
@@ -42,6 +43,10 @@ public class UC4_Controller {
 
     }
 
+    /**
+     *
+     * @param evento
+     */
     public void setEvento(Evento evento) {
         this.evento = evento;
     }
@@ -59,15 +64,17 @@ public class UC4_Controller {
         return candidaturas;
     }
 
+    /**
+     * Defenir candidatura a ser utilizadaa 
+     * @param candidatura candidatura para ser defenir
+     */
     public void setCandidatura(Candidatura candidatura) {
         this.candidatura = candidatura;
     }
 
     /**
      * Apresenta os dados de uma candidatura para o FAE a poder avaliar
-     *
-     * @param candidatura
-     * @return
+     * @return devolve dados para mostrar
      */
     public String mostrarDadosCandidatura() {
         String dados;
@@ -77,11 +84,10 @@ public class UC4_Controller {
 
     /**
      * Cria uma avaliacao com o veredicto e justificacao que o FAE introduziu
-     *
      * @param veredicto decisao que o FAE introduz sobre a candidatura
      * @param justificacao texto a justificar o veredicto
      */
-    public void defenirAvaliaçao(boolean veredicto, String justificacao) {
+    public void defenirAvaliacao(boolean veredicto, String justificacao) {
         for (int i = 0; i < atribuicoesFAE.size(); i++) {
             if (atribuicoesFAE.get(i).getCandidatura().equals(candidatura)) {
                 this.avaliacao = new Avaliacao();
@@ -92,6 +98,10 @@ public class UC4_Controller {
 
     }
 
+    /**
+     * Devolve a avaliacao
+     * @return avaliacao que foi criada
+     */
     public Avaliacao getAvaliacao() {
         return avaliacao;
     }
@@ -106,7 +116,6 @@ public class UC4_Controller {
 
     /**
      * Guarda permanentemente a avaliacao criada
-     *
      */
     public void guardarAvaliacao() {
         centroDeEventos.registarAvaliacao(evento, atribuicao, avaliacao);

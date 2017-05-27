@@ -2,14 +2,9 @@ package Dominio;
 
 import java.io.Serializable;
 
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 /**
  *
- * @author Hugo
+ * @author Hugo Fernandes; Hugo Carvalho
  */
 public class Avaliacao implements Serializable {
 
@@ -18,20 +13,23 @@ public class Avaliacao implements Serializable {
     private static boolean JUSTIFICACAO_POR_OMISSAO = false;
     private static String VEREDICTO_POR_OMISSAO = "Nao justificada";
 
+    /**
+     * Construror da avaliacao
+     */
     public Avaliacao() {
         this.veredicto = JUSTIFICACAO_POR_OMISSAO;
         this.justificacao = VEREDICTO_POR_OMISSAO;
     }
 
     /**
-     * @return the veredicto
+     * @return o veredicto
      */
     public boolean getVeredicto() {
         return veredicto;
     }
 
     /**
-     * @param veredicto the veredicto to set
+     * @param veredicto a defenir
      */
     public void setVeredicto(boolean veredicto) {
         this.veredicto = veredicto;
@@ -51,6 +49,10 @@ public class Avaliacao implements Serializable {
         this.justificacao = justificacao;
     }
 
+    /**
+     * @return string com dados para mostrar
+     */
+    @Override
     public String toString() {
         if (veredicto = true) {
             String resposta = "Aprovada";

@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Algoritmos;
 
 import Dominio.Atribuicao;
@@ -13,15 +8,24 @@ import java.util.Scanner;
 
 /**
  *
- * @author Hugo
+ * @author Hugo Carvalho; Hugo Fernandes
  */
 public class AlgoritmoPorNumeroDeFAE implements Algoritmo {
 
     private static Scanner in = new Scanner(System.in);
 
+    /**
+     * Construtor de um objecto do tipo algoritmo por numero de FAE
+     */
     public AlgoritmoPorNumeroDeFAE() {
     }
 
+    /**
+     *
+     * @param listaFAE lista de FAE do evento pela qual serao distribuidas as candidadturas
+     * @param listaCandidaturas lista de candidaturas a distribuir 
+     * @return atribuicoes feitas de acordo com este algoritmo
+     */
     @Override
     public ArrayList<Atribuicao> run(ArrayList<FAE> listaFAE, ArrayList<Candidatura> listaCandidaturas) {
         int nFAE, nCandidaturas, nAvaliadores, contFAE = 0, contCandidatura = 0;
@@ -32,8 +36,8 @@ public class AlgoritmoPorNumeroDeFAE implements Algoritmo {
             System.out.println("Este evento tem " + nFAE + " FAEs. Numero de FAE por candidatura?");
             nAvaliadores = in.nextInt();
             in.nextLine();
-            if(nAvaliadores > nFAE || nAvaliadores <= 0){
-            System.out.println("Numero de FAEs em excesso ou numero nulo.");
+            if (nAvaliadores > nFAE || nAvaliadores <= 0) {
+                System.out.println("Numero de FAEs em excesso ou numero nulo.");
             }
         } while (nAvaliadores > nFAE || nAvaliadores <= 0);
         for (int i = 0; i < nCandidaturas; i++) {
@@ -44,7 +48,7 @@ public class AlgoritmoPorNumeroDeFAE implements Algoritmo {
                 Atribuicao atribuicao = new Atribuicao(listaFAE.get(contFAE), listaCandidaturas.get(i));
                 atribuicoes.add(atribuicao);
                 contFAE++;
-                
+
             }
         }
         return atribuicoes;

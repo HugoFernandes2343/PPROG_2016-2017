@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Dominio;
 
 import Algoritmos.AlgoritmoPorDistribuicaoEquatitativaDeFAE;
@@ -13,14 +8,17 @@ import java.util.ArrayList;
 
 /**
  *
- * @author Hugo
+ * @author Hugo Fernandes; Hugo Carvalho
  */
-public class RegistoDeAlgoritmos implements Serializable{
+public class RegistoDeAlgoritmos implements Serializable {
 
     private ArrayList<Object> algoritmosDeAtribuicao;
 
+    /**
+     * construtor do registo de algoritmos
+     */
     public RegistoDeAlgoritmos() {
-        this.algoritmosDeAtribuicao=new ArrayList();
+        this.algoritmosDeAtribuicao = new ArrayList();
         carregarAlgoritmosDeAtribuicao();
     }
 
@@ -29,8 +27,13 @@ public class RegistoDeAlgoritmos implements Serializable{
         algoritmosDeAtribuicao.add(new AlgoritmoPorDistribuicaoEquatitativaDeFAE());
         algoritmosDeAtribuicao.add(new AlgoritmoPorQualidadeDeFAE());
     }
-    
-    public ArrayList<Object> getAlgoritmosDeAtribuicao(){
-    return algoritmosDeAtribuicao;
+
+    /**
+     * devolve algoritmos
+     *
+     * @return algoritmos de atribuicao
+     */
+    public ArrayList<Object> getAlgoritmosDeAtribuicao() {
+        return algoritmosDeAtribuicao;
     }
 }

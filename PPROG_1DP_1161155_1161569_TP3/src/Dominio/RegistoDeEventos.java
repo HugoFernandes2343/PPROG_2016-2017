@@ -3,18 +3,36 @@ package Dominio;
 import java.io.Serializable;
 import java.util.ArrayList;
 
+/**
+ *
+ * @author Hugo Fernandes; Hugo Carvalho
+ */
 public class RegistoDeEventos implements Serializable {
 
     private ArrayList<Evento> LISTA_EVENTOS;
 
+    /**
+     * construtor do registo de eventos
+     */
     public RegistoDeEventos() {
         this.LISTA_EVENTOS = new ArrayList();
     }
 
+    /**
+     * Devolve lista de eventos
+     *
+     * @return lista de eventos
+     */
     public ArrayList<Evento> getListaEventos() {
         return LISTA_EVENTOS;
     }
 
+    /**
+     * procurar eventos do organizador
+     *
+     * @param organizador utilizador da app
+     * @return lista de eventos do organizador
+     */
     public ArrayList<Evento> procurarEventosPosSubmissaoDoOrganizador(Organizador organizador) {
         ArrayList<Evento> eventosDoOrganizador = new ArrayList();
         for (int i = 0; i < LISTA_EVENTOS.size(); i++) {
@@ -55,6 +73,12 @@ public class RegistoDeEventos implements Serializable {
         return listaEventosDoFAE;
     }
 
+    /**
+     * Guarda permanentemente a atribuicao num evento
+     *
+     * @param evento evento da atribuicao
+     * @param atribuicao objecto a guardar
+     */
     public void registarAtribuicaoDeEvento(Evento evento, ArrayList<Atribuicao> atribuicao) {
         for (int i = 0; i < LISTA_EVENTOS.size(); i++) {
             Evento eventoRegistado = LISTA_EVENTOS.get(i);
@@ -64,6 +88,12 @@ public class RegistoDeEventos implements Serializable {
         }
     }
 
+    /**
+     * Valida se o utilizador nao é FAE e organizador ao mesmo tempo
+     *
+     * @param utilizador
+     * @return boolean que valida ou nao que nao é ambos
+     */
     public boolean verificarOrganizadorOuFAE(Utilizador utilizador) {
         FAE FAE = new FAE(utilizador);
         Organizador org = new Organizador(utilizador);
@@ -76,6 +106,13 @@ public class RegistoDeEventos implements Serializable {
         return false;
     }
 
+    /**
+     * guardar permantentemetne avaliacao
+     *
+     * @param evento evento da atribuicao
+     * @param atribuicao atribuicao da avaliacao
+     * @param avaliacao objeto a ser gravado
+     */
     public void registarAvaliacao(Evento evento, Atribuicao atribuicao, Avaliacao avaliacao) {
         for (int i = 0; i < LISTA_EVENTOS.size(); i++) {
             Evento eventoRegistado = LISTA_EVENTOS.get(i);
@@ -91,6 +128,12 @@ public class RegistoDeEventos implements Serializable {
         }
     }
 
+    /**
+     * guardar permanentemente candidatura
+     *
+     * @param evento evento da candidatura
+     * @param candidatura objecto a guardar
+     */
     public void registarCandidatura(Evento evento, Candidatura candidatura) {
         for (int i = 0; i < LISTA_EVENTOS.size(); i++) {
             Evento eventoRegistado = LISTA_EVENTOS.get(i);

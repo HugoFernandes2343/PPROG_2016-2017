@@ -5,19 +5,20 @@ import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 /**
  *
- * @author Hugo
+ * @author Hugo Fernands; Hugo Carvalho
  */
 public class TESTE {
 
     private static final Scanner in = new Scanner(System.in);
 
+    /**
+     * metodo main do programa
+     *
+     * @param args
+     * @throws FileNotFoundException
+     */
     public static void main(String[] args) throws FileNotFoundException {
 
         int op;
@@ -53,6 +54,11 @@ public class TESTE {
         }
     }
 
+    /**
+     * menu de escolha da funcionalidade que deve ser realizada
+     *
+     * @return opcao escolhida
+     */
     public static int menu() {
         String texto = "\nMENU: "
                 + "\n    UC3 - Atribuir Candidaturas aos FAEs   1"

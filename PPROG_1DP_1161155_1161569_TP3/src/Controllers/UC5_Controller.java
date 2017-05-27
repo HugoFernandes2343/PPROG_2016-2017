@@ -7,6 +7,10 @@ import Dominio.ListCandidaturas;
 import java.util.ArrayList;
 import Dominio.Utilizador;
 
+/**
+ *
+ * @author Hugo Fernandes; Hugo Carvalho
+ */
 public class UC5_Controller {
 
     private Utilizador utilizador;
@@ -18,7 +22,6 @@ public class UC5_Controller {
 
     /**
      * construtor do controller
-     *
      * @param utilizador representante que esta a usar a app
      * @param centroDeEventos centro de eventos da app
      */
@@ -29,7 +32,6 @@ public class UC5_Controller {
 
     /**
      * mostra todos os eventos que ainda podem ter candidaturas submetidas neles
-     *
      * @return lista de eventos que estao ativos
      */
     public ArrayList<Evento> mostrarListaEventosAtivos(Utilizador utilizador) {
@@ -48,7 +50,6 @@ public class UC5_Controller {
 
     /**
      * Define como evento escolhido o evento dado como parametro
-     *
      * @param evento evento escolhido
      */
     public void setEvento(Evento evento) {
@@ -57,7 +58,6 @@ public class UC5_Controller {
 
     /**
      * cria uma candidatura com os dados introduzidos
-     *
      * @param dadosCandidatura dados da candidatura
      * @return candidatura defenida para confirmacao
      */
@@ -67,18 +67,25 @@ public class UC5_Controller {
         return candidatura;
     }
 
+    /**
+     * Devolve a candidatura que esta a ser utilizada
+     * @return candidatura candidatura a ser criada na funcionalidade
+     */
     public Candidatura getCandidatura() {
         return candidatura;
     }
 
     /**
      * Guarda permanentemente a avaliacao criada
-     *
      */
     public void guardarCandidatura() {
         centroDeEventos.registarCandidatura(evento, candidatura);
     }
 
+    /**
+     * Verifica se o representante é valido
+     * @return boolean
+     */
     public boolean validaRepresentante() {
         return centroDeEventos.verificarRepresentante(utilizador);
     }

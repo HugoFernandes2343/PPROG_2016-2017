@@ -2,6 +2,10 @@ package Dominio;
 
 import java.io.Serializable;
 
+/**
+ *
+ * @author Hugo Fernandes; Hugo Carvalho
+ */
 public class Utilizador implements Serializable {
 
     private String nome;
@@ -10,6 +14,14 @@ public class Utilizador implements Serializable {
     private String password;
     private static final String DADOS_POR_OMISSAO = "Sem dados";
 
+    /**
+     * construtor completo do utilizador
+     *
+     * @param nome nome do utilizador
+     * @param username username do utilizador
+     * @param email email do utilizador
+     * @param password password do utilizador
+     */
     public Utilizador(String nome, String username, String email, String password) {
         this.nome = nome;
         this.username = username;
@@ -17,6 +29,9 @@ public class Utilizador implements Serializable {
         this.password = password;
     }
 
+    /**
+     * construtor vazio do utilizadot
+     */
     public Utilizador() {
         this.nome = DADOS_POR_OMISSAO;
         this.username = DADOS_POR_OMISSAO;
@@ -25,26 +40,39 @@ public class Utilizador implements Serializable {
     }
 
     /**
-     * @return the username
+     * devolve username
+     *
+     * @return username
      */
     public String getUsername() {
         return username;
     }
 
     /**
-     * @return the email
+     * devolve email
+     *
+     * @return email
      */
     public String getEmail() {
         return email;
     }
 
     /**
-     * @return the password
+     * devolve password
+     *
+     * @return password
      */
     public String getPassword() {
         return password;
     }
 
+    /**
+     * compara dois utilizadores e verifica se sao iguais
+     *
+     * @param outroObjeto segundo utilizador a comparar
+     * @return boolean a confirmar ou negar que sao iguais
+     */
+    @Override
     public boolean equals(Object outroObjeto) {
         if (this == outroObjeto) {
             return true;
@@ -56,6 +84,12 @@ public class Utilizador implements Serializable {
         return this.username.equalsIgnoreCase(outroUtilizador.getUsername());
     }
 
+    /**
+     * devolve os dados do utilizador em formato string
+     *
+     * @return string dos dados
+     */
+    @Override
     public String toString() {
         return String.format("Nome: %s%nEmail: %s%n", nome, email);
     }
